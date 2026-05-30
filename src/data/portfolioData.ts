@@ -128,7 +128,7 @@ export const projects: Project[] = [
     type: "design",
     typeLabel: "UI/UX & Product Design",
     description:
-      "Prototipação completa das telas do aplicativo e do site oficial no Figma, além do design estratégico das screenshots oficiais publicadas na Google Play Store. Projeto com impacto direto na conversão e retenção de usuários.",
+      "Prototipação de telas do aplicativo e do site oficial no Figma, além do design estratégico das screenshots oficiais publicadas na Google Play Store. Projeto com impacto direto na conversão e retenção de usuários.",
     stack: ["Figma", "UI/UX Design", "Prototipação", "Play Store Assets"],
     links: [
       {
@@ -151,7 +151,7 @@ export const projects: Project[] = [
     type: "brand",
     typeLabel: "Brand & UI Design",
     description:
-      "Criação da identidade visual completa e design do logotipo oficial para aplicativo publicado na Google Play Store. Trabalho de branding que combina apelo visual com comunicação clara da proposta de valor do produto.",
+      "Criação do logotipo oficial para aplicativo publicado na Google Play Store. Trabalho de branding que combina apelo visual com comunicação clara da proposta de valor do produto.",
     stack: ["Figma", "Brand Design", "Identidade Visual", "Logotipo"],
     links: [
       {
