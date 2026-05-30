@@ -84,7 +84,7 @@ export function ContactSection({ data, socialLinks }: ContactSectionProps) {
         {/* Footer divider */}
         <div className="border-t border-zinc-800/60 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-600">
           <p className="font-mono tracking-wide">
-            © {new Date().getFullYear()} Randerson Ranniery. Todos os direitos reservados.
+            © {new Date().getFullYear()} Edgar Henrique. Todos os direitos reservados.
           </p>
           <p className="font-mono tracking-wide">
             Feito com{" "}
