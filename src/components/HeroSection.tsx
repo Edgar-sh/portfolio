@@ -21,7 +21,11 @@ export function HeroSection({ data }: HeroSectionProps) {
 
   const item = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+    },
   };
 
   return (
@@ -55,7 +59,14 @@ export function HeroSection({ data }: HeroSectionProps) {
             className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-white leading-[1.05] tracking-tight mb-4"
           >
             {data.name.split(" ").map((word, i) => (
-              <span key={i} className={i === 1 ? "text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400" : ""}>
+              <span
+                key={i}
+                className={
+                  i === 1
+                    ? "text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400"
+                    : ""
+                }
+              >
                 {word}{" "}
               </span>
             ))}
@@ -64,7 +75,9 @@ export function HeroSection({ data }: HeroSectionProps) {
           {/* Tagline */}
           <motion.div variants={item} className="flex items-center gap-3 mb-6">
             <div className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-violet-500/50 to-transparent" />
-            <p className="text-lg sm:text-xl text-zinc-300 font-medium">{data.tagline}</p>
+            <p className="text-lg sm:text-xl text-zinc-300 font-medium">
+              {data.tagline}
+            </p>
           </motion.div>
 
           {/* Sub-tagline */}
@@ -93,7 +106,10 @@ export function HeroSection({ data }: HeroSectionProps) {
           </motion.div>
 
           {/* Status badge */}
-          <motion.div variants={item} className="mt-8 inline-flex items-center gap-2 text-sm text-zinc-500">
+          <motion.div
+            variants={item}
+            className="mt-8 inline-flex items-center gap-2 text-sm text-zinc-500"
+          >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -106,18 +122,18 @@ export function HeroSection({ data }: HeroSectionProps) {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{
+            duration: 0.8,
+            delay: 0.4,
+            ease: [0.25, 0.46, 0.45, 0.94],
+          }}
           className="hidden lg:flex items-center justify-center"
         >
           <div className="relative">
-            {/* Rotating border ring */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-pink-500 p-0.5 animate-spin-slow">
-              <div className="w-full h-full rounded-full bg-slate-950" />
-            </div>
             {/* Glow */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-violet-600/30 to-fuchsia-600/20 blur-2xl scale-110" />
             {/* Avatar container */}
-            <div className="relative w-52 h-52 rounded-full border border-zinc-800 overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center">
+            <div className="relative w-72 h-72 rounded-full border border-zinc-800 overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center">
               {data.profileImage ? (
                 <img
                   src={data.profileImage}
@@ -130,9 +146,6 @@ export function HeroSection({ data }: HeroSectionProps) {
                 </span>
               )}
             </div>
-            {/* Corner accent dots */}
-            <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-violet-500" />
-            <div className="absolute -bottom-1 -left-1 w-2 h-2 rounded-full bg-pink-500" />
           </div>
         </motion.div>
       </div>
