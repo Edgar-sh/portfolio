@@ -1,8 +1,9 @@
 export interface ButtonsProps {
+  className?: string
   onNavClick?: (section: 'about' | 'technologies' | 'projects') => void
 }
 
-export default function Buttons({ onNavClick }: ButtonsProps) {
+export default function Buttons({ className = '', onNavClick }: ButtonsProps) {
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     section: 'about' | 'technologies' | 'projects'
@@ -15,7 +16,7 @@ export default function Buttons({ onNavClick }: ButtonsProps) {
 
   return (
     <nav
-      className="flex items-center justify-center gap-5 text-sm text-black whitespace-nowrap not-italic"
+      className={`items-center justify-center gap-5 text-sm text-black whitespace-nowrap not-italic ${className}`}
       data-name="Buttons"
       aria-label="Main Navigation"
     >

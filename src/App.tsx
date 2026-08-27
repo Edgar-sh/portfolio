@@ -5,7 +5,7 @@ export default function App() {
   const [language, setLanguage] = useState<Language>('EN_US')
 
   return (
-    <div className="max-w-[1280px] mx-auto px-6 py-[50px] w-full box-border">
+    <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-6 md:py-[50px] w-full box-border">
       <Header
         currentLanguage={language}
         onLanguageChange={(lang) => setLanguage(lang)}
