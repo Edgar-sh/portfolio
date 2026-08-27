@@ -31,6 +31,10 @@ export interface AboutTranslations {
   phone: string
 }
 
+export interface TechnologiesTranslations {
+  title: string
+}
+
 export const headerTranslations: Record<Language, HeaderTranslations> = {
   EN_US: {
     about: 'About',
@@ -113,5 +117,14 @@ export const aboutTranslations: Record<Language, AboutTranslations> = {
     letsConnect: 'Vamos Conectar',
     email: 'Edgar.silva@dcx.ufpb.br',
     phone: '(XX) X XXXX-XXXX',
+  },
+}
+
+export const technologiesTranslations: Record<Language, TechnologiesTranslations> = {
+  EN_US: {
+    title: 'Technologies',
+  },
+  PT_BR: {
+    title: 'Tecnologias',
   },
 }

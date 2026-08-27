@@ -91,14 +91,14 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
         <div className="hidden lg:block w-[2px] self-stretch bg-[#E5E7EB]" role="separator" aria-hidden="true" />
 
         {/* Right Column: Let's Connect + Social Links (Figma Node 32:912) + Private Contacts */}
-        <div className="flex flex-col justify-between self-stretch gap-8 lg:gap-12 w-full lg:max-w-[354px]">
+        <div className="flex flex-col justify-between gap-8 lg:gap-12 w-full max-w-[432px] lg:max-w-[354px] lg:self-stretch">
           {/* Social Media Section (Node 32:912) */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-5 sm:gap-6">
             <h3 className="text-[28px] sm:text-[32px] lg:text-[36px] font-medium text-[#010101] leading-tight select-none">
               {t.letsConnect}
             </h3>
 
-            <div className="flex flex-col gap-5 text-sm font-medium" data-name="SocialMedia">
+            <div className="flex flex-col gap-4 sm:gap-5 text-sm font-medium" data-name="SocialMedia">
               {/* LinkedIn */}
               <a
                 href="https://linkedin.com"
@@ -150,11 +150,11 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
           </div>
 
           {/* Private Contact Items (Email & Phone) */}
-          <div className="flex flex-col gap-4 pt-4 lg:pt-0">
+          <div className="flex flex-col gap-4 pt-2 lg:pt-0">
             {/* Email Contact */}
             <a
               href={`mailto:${t.email}`}
-              className="flex items-center gap-3 group no-underline text-inherit focus-visible:outline-2 focus-visible:outline-[#010101] rounded-lg p-1 -m-1"
+              className="flex items-center gap-3 group no-underline text-inherit focus-visible:outline-2 focus-visible:outline-[#010101] rounded-lg p-1 -m-1 w-fit max-w-full"
               aria-label={`Send email to ${t.email}`}
             >
               <div className="w-10 h-10 shrink-0 flex items-center justify-center">
@@ -166,7 +166,7 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
             </a>
 
             {/* Phone Contact */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 p-1 -m-1 w-fit max-w-full">
               <div className="w-10 h-10 shrink-0 flex items-center justify-center">
                 <img src={phoneIcon} alt="" className="w-10 h-10 object-contain" aria-hidden="true" />
               </div>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Header, type Language } from './components/Header'
 import { HeroSection } from './components/HeroSection'
 import { AboutSection } from './components/AboutSection'
+import { TechnologiesSection } from './components/TechnologiesSection'
 
 export default function App() {
   const [language, setLanguage] = useState<Language>('EN_US')
@@ -22,6 +23,7 @@ export default function App() {
       <main className="flex flex-col gap-16 sm:gap-24">
         <HeroSection language={language} />
         <AboutSection language={language} />
+        <TechnologiesSection language={language} />
       </main>
     </div>
   )
