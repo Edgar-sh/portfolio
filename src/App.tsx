@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Header, type Language } from './components/Header'
+import { HeroSection } from './components/HeroSection'
 
 export default function App() {
   const [language, setLanguage] = useState<Language>('EN_US')
@@ -9,7 +10,7 @@ export default function App() {
   }, [language])
 
   return (
-    <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-6 md:py-[50px] w-full box-border">
+    <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-6 md:py-[50px] w-full box-border flex flex-col gap-12 sm:gap-16">
       <Header
         currentLanguage={language}
         onLanguageChange={(lang) => setLanguage(lang)}
@@ -17,6 +18,9 @@ export default function App() {
           window.location.href = 'mailto:Edgar.silva@dcx.ufpb.br'
         }}
       />
+      <main>
+        <HeroSection language={language} />
+      </main>
     </div>
   )
 }

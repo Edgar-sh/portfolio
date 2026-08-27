@@ -122,7 +122,11 @@ export function Header({
           <div className="relative inline-block" ref={dropdownRef}>
             <button
               type="button"
-              className="inline-flex items-center justify-center gap-[5px] px-2 py-[5px] bg-transparent text-black font-semibold text-xs leading-none border-2 border-[#010101] rounded-[30px] cursor-pointer transition-all duration-200 ease-in-out hover:bg-[#F5F5F5] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101]"
+              className={`inline-flex items-center justify-center gap-[5px] px-2 py-[5px] font-semibold text-xs leading-none border-2 border-[#010101] rounded-[30px] cursor-pointer transition-all duration-200 ease-in-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101] ${
+                isDropdownOpen
+                  ? 'bg-[#010101] text-white'
+                  : 'bg-transparent text-black hover:bg-[#010101] hover:text-white'
+              }`}
               onClick={() => setIsDropdownOpen((prev) => !prev)}
               aria-expanded={isDropdownOpen}
               aria-haspopup="listbox"
@@ -256,10 +260,10 @@ export function Header({
               <div className="flex items-center gap-1.5">
                 <button
                   type="button"
-                  className={`px-3 py-1 text-xs font-semibold rounded-[20px] border border-[#010101] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101] ${
+                  className={`px-3 py-1 text-xs font-semibold rounded-[20px] border border-[#010101] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101] ${
                     selectedLanguage === 'EN_US'
                       ? 'bg-[#010101] text-white'
-                      : 'bg-transparent text-black hover:bg-[#FBCFDE]'
+                      : 'bg-transparent text-black hover:bg-[#010101] hover:text-white'
                   }`}
                   onClick={() => handleLanguageSelect('EN_US')}
                 >
@@ -267,10 +271,10 @@ export function Header({
                 </button>
                 <button
                   type="button"
-                  className={`px-3 py-1 text-xs font-semibold rounded-[20px] border border-[#010101] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101] ${
+                  className={`px-3 py-1 text-xs font-semibold rounded-[20px] border border-[#010101] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101] ${
                     selectedLanguage === 'PT_BR'
                       ? 'bg-[#010101] text-white'
-                      : 'bg-transparent text-black hover:bg-[#FBCFDE]'
+                      : 'bg-transparent text-black hover:bg-[#010101] hover:text-white'
                   }`}
                   onClick={() => handleLanguageSelect('PT_BR')}
                 >
