@@ -1,9 +1,18 @@
+import { type Language, headerTranslations } from '../i18n/translations'
+
 export interface ButtonsProps {
   className?: string
+  language?: Language
   onNavClick?: (section: 'about' | 'technologies' | 'projects') => void
 }
 
-export default function Buttons({ className = '', onNavClick }: ButtonsProps) {
+export default function Buttons({
+  className = '',
+  language = 'EN_US',
+  onNavClick,
+}: ButtonsProps) {
+  const t = headerTranslations[language]
+
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     section: 'about' | 'technologies' | 'projects'
@@ -23,28 +32,28 @@ export default function Buttons({ className = '', onNavClick }: ButtonsProps) {
       <div className="flex flex-col justify-center relative shrink-0">
         <a
           href="#about"
-          className="leading-normal cursor-pointer hover:underline transition-all text-black no-underline"
+          className="leading-normal cursor-pointer hover:underline transition-all text-black no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101] rounded-sm"
           onClick={(e) => handleClick(e, 'about')}
         >
-          About
+          {t.about}
         </a>
       </div>
       <div className="flex flex-col justify-center relative shrink-0">
         <a
           href="#technologies"
-          className="leading-normal cursor-pointer hover:underline transition-all text-black no-underline"
+          className="leading-normal cursor-pointer hover:underline transition-all text-black no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101] rounded-sm"
           onClick={(e) => handleClick(e, 'technologies')}
         >
-          Technologies
+          {t.technologies}
         </a>
       </div>
       <div className="flex flex-col justify-center relative shrink-0">
         <a
           href="#projects"
-          className="leading-normal cursor-pointer hover:underline transition-all text-black no-underline"
+          className="leading-normal cursor-pointer hover:underline transition-all text-black no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101] rounded-sm"
           onClick={(e) => handleClick(e, 'projects')}
         >
-          Projects
+          {t.projects}
         </a>
       </div>
     </nav>

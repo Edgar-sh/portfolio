@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import Buttons from './Buttons'
+import { type Language, headerTranslations } from '../i18n/translations'
 
-export type Language = 'EN_US' | 'PT_BR'
+export type { Language }
 
 export interface HeaderProps {
   currentLanguage?: Language
@@ -23,6 +24,7 @@ export function Header({
   const mobileMenuRef = useRef<HTMLDivElement>(null)
 
   const selectedLanguage = currentLanguage !== undefined ? currentLanguage : internalLanguage
+  const t = headerTranslations[selectedLanguage]
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -101,6 +103,7 @@ export function Header({
         {/* Desktop Navigation Links */}
         <Buttons
           className="hidden md:flex"
+          language={selectedLanguage}
           onNavClick={onNavClick}
         />
 
@@ -109,17 +112,17 @@ export function Header({
           {/* Desktop "Let's talk" Button */}
           <a
             href="#contact"
-            className="inline-flex items-center justify-center px-[15px] py-2.5 bg-transparent text-black font-bold text-sm leading-none border-2 border-[#010101] rounded-[30px] cursor-pointer no-underline transition-all duration-200 ease-in-out hover:bg-[#010101] hover:text-white"
+            className="inline-flex items-center justify-center px-[15px] py-2.5 bg-transparent text-black font-bold text-sm leading-none border-2 border-[#010101] rounded-[30px] cursor-pointer no-underline transition-all duration-200 ease-in-out hover:bg-[#010101] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101]"
             onClick={handleTalkClick}
           >
-            Let's talk
+            {t.letsTalk}
           </a>
 
           {/* Desktop Language Selector */}
           <div className="relative inline-block" ref={dropdownRef}>
             <button
               type="button"
-              className="inline-flex items-center justify-center gap-[5px] px-2 py-[5px] bg-transparent text-black font-semibold text-xs leading-none border-2 border-[#010101] rounded-[30px] cursor-pointer transition-all duration-200 ease-in-out hover:bg-[#F5F5F5]"
+              className="inline-flex items-center justify-center gap-[5px] px-2 py-[5px] bg-transparent text-black font-semibold text-xs leading-none border-2 border-[#010101] rounded-[30px] cursor-pointer transition-all duration-200 ease-in-out hover:bg-[#F5F5F5] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101]"
               onClick={() => setIsDropdownOpen((prev) => !prev)}
               aria-expanded={isDropdownOpen}
               aria-haspopup="listbox"
@@ -146,7 +149,7 @@ export function Header({
               >
                 <button
                   type="button"
-                  className={`px-3 py-1.5 text-xs font-semibold text-left cursor-pointer transition-colors duration-150 border-none ${
+                  className={`px-3 py-1.5 text-xs font-semibold text-left cursor-pointer transition-colors duration-150 border-none focus-visible:outline-none focus-visible:bg-[#FBCFDE] ${
                     selectedLanguage === 'EN_US'
                       ? 'bg-[#010101] text-white'
                       : 'bg-transparent text-black hover:bg-[#FBCFDE]'
@@ -159,7 +162,7 @@ export function Header({
                 </button>
                 <button
                   type="button"
-                  className={`px-3 py-1.5 text-xs font-semibold text-left cursor-pointer transition-colors duration-150 border-none ${
+                  className={`px-3 py-1.5 text-xs font-semibold text-left cursor-pointer transition-colors duration-150 border-none focus-visible:outline-none focus-visible:bg-[#FBCFDE] ${
                     selectedLanguage === 'PT_BR'
                       ? 'bg-[#010101] text-white'
                       : 'bg-transparent text-black hover:bg-[#FBCFDE]'
@@ -175,10 +178,10 @@ export function Header({
           </div>
         </div>
 
-        {/* Mobile Hamburger Button (from node 15:254) */}
+        {/* Mobile Hamburger Button (from node 15:254 with 44px accessible touch target) */}
         <button
           type="button"
-          className="md:hidden p-0 bg-transparent border-none cursor-pointer flex items-center justify-center w-[30px] h-[30px]"
+          className="md:hidden p-1.5 -mr-1.5 bg-transparent border-none cursor-pointer flex items-center justify-center min-w-[44px] min-h-[44px] rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101]"
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           aria-expanded={isMobileMenuOpen}
           aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -222,24 +225,24 @@ export function Header({
           <nav className="flex flex-col gap-2" aria-label="Mobile Navigation">
             <a
               href="#about"
-              className="text-black text-sm font-medium py-2.5 px-3 rounded-lg no-underline hover:bg-[#FBCFDE] transition-colors"
+              className="text-black text-sm font-medium py-2.5 px-3 rounded-lg no-underline hover:bg-[#FBCFDE] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101]"
               onClick={() => handleMobileNavClick('about')}
             >
-              About
+              {t.about}
             </a>
             <a
               href="#technologies"
-              className="text-black text-sm font-medium py-2.5 px-3 rounded-lg no-underline hover:bg-[#FBCFDE] transition-colors"
+              className="text-black text-sm font-medium py-2.5 px-3 rounded-lg no-underline hover:bg-[#FBCFDE] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101]"
               onClick={() => handleMobileNavClick('technologies')}
             >
-              Technologies
+              {t.technologies}
             </a>
             <a
               href="#projects"
-              className="text-black text-sm font-medium py-2.5 px-3 rounded-lg no-underline hover:bg-[#FBCFDE] transition-colors"
+              className="text-black text-sm font-medium py-2.5 px-3 rounded-lg no-underline hover:bg-[#FBCFDE] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101]"
               onClick={() => handleMobileNavClick('projects')}
             >
-              Projects
+              {t.projects}
             </a>
           </nav>
 
@@ -247,11 +250,13 @@ export function Header({
           <div className="pt-4 border-t border-gray-200 flex flex-col gap-3">
             {/* Language Selection inside Menu */}
             <div className="flex items-center justify-between px-1">
-              <span className="text-xs font-semibold text-gray-500">Language:</span>
+              <span className="text-xs font-semibold text-gray-500">
+                {t.languageLabel}:
+              </span>
               <div className="flex items-center gap-1.5">
                 <button
                   type="button"
-                  className={`px-3 py-1 text-xs font-semibold rounded-[20px] border border-[#010101] transition-all ${
+                  className={`px-3 py-1 text-xs font-semibold rounded-[20px] border border-[#010101] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101] ${
                     selectedLanguage === 'EN_US'
                       ? 'bg-[#010101] text-white'
                       : 'bg-transparent text-black hover:bg-[#FBCFDE]'
@@ -262,7 +267,7 @@ export function Header({
                 </button>
                 <button
                   type="button"
-                  className={`px-3 py-1 text-xs font-semibold rounded-[20px] border border-[#010101] transition-all ${
+                  className={`px-3 py-1 text-xs font-semibold rounded-[20px] border border-[#010101] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101] ${
                     selectedLanguage === 'PT_BR'
                       ? 'bg-[#010101] text-white'
                       : 'bg-transparent text-black hover:bg-[#FBCFDE]'
@@ -277,10 +282,10 @@ export function Header({
             {/* "Let's talk" Button */}
             <a
               href="#contact"
-              className="w-full inline-flex items-center justify-center px-[15px] py-2.5 bg-[#010101] text-white font-bold text-sm leading-none border-2 border-[#010101] rounded-[30px] cursor-pointer no-underline transition-all duration-200 ease-in-out hover:bg-transparent hover:text-black text-center"
+              className="w-full inline-flex items-center justify-center px-[15px] py-2.5 bg-[#010101] text-white font-bold text-sm leading-none border-2 border-[#010101] rounded-[30px] cursor-pointer no-underline transition-all duration-200 ease-in-out hover:bg-transparent hover:text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101] text-center"
               onClick={handleTalkClick}
             >
-              Let's talk
+              {t.letsTalk}
             </a>
           </div>
         </div>
