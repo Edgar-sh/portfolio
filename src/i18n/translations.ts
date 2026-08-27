@@ -16,6 +16,21 @@ export interface HeroTranslations {
   typewriterPhrases: string[]
 }
 
+export interface AboutTranslations {
+  title: string
+  bio: string[]
+  educationLabel: string
+  educationValue: string
+  focusLabel: string
+  focusValue: string
+  stackLabel: string
+  stackValue: string
+  availability: string
+  letsConnect: string
+  email: string
+  phone: string
+}
+
 export const headerTranslations: Record<Language, HeaderTranslations> = {
   EN_US: {
     about: 'About',
@@ -59,5 +74,44 @@ export const heroTranslations: Record<Language, HeroTranslations> = {
       '// btw i use arch',
       '// Linux is my passion',
     ],
+  },
+}
+
+export const aboutTranslations: Record<Language, AboutTranslations> = {
+  EN_US: {
+    title: 'About',
+    bio: [
+      "I'm a software developer and UI/UX designer dedicated to building end-to-end digital solutions that balance refined usability with solid engineering.",
+      'Currently pursuing a B.S. in Information Systems at UFPB, I work across the stack—from prototyping intuitive user experiences in Figma to developing robust backend architectures with Java and Spring Boot, as well as responsive frontends with React and TypeScript.',
+      'Passionate about Linux and open-source workflows, I strive to turn complex problems into clean, functional, and user-centric software.',
+    ],
+    educationLabel: 'Education|',
+    educationValue: 'Information Systems',
+    focusLabel: 'Focus|',
+    focusValue: 'Full Stack + UI/UX',
+    stackLabel: 'Main Stack|',
+    stackValue: 'Java * React * Figma',
+    availability: 'Available for work',
+    letsConnect: "Let's Connect",
+    email: 'Edgar.silva@dcx.ufpb.br',
+    phone: '(XX) X XXXX-XXXX',
+  },
+  PT_BR: {
+    title: 'Sobre',
+    bio: [
+      'Sou desenvolvedor de software e UI/UX designer dedicado a construir soluções digitais de ponta a ponta que equilibram usabilidade refinada com engenharia sólida.',
+      'Atualmente cursando Bacharelado em Sistemas de Informação na UFPB, atuo em toda a stack — desde a prototipagem de experiências intuitivas no Figma até o desenvolvimento de arquiteturas backend robustas com Java e Spring Boot, além de frontends responsivos com React e TypeScript.',
+      'Apaixonado por Linux e fluxos de trabalho open-source, busco transformar problemas complexos em softwares limpos, funcionais e centrados no usuário.',
+    ],
+    educationLabel: 'Formação|',
+    educationValue: 'Sistemas de Informação',
+    focusLabel: 'Foco|',
+    focusValue: 'Full Stack + UI/UX',
+    stackLabel: 'Stack Principal|',
+    stackValue: 'Java * React * Figma',
+    availability: 'Disponível para trabalho',
+    letsConnect: 'Vamos Conectar',
+    email: 'Edgar.silva@dcx.ufpb.br',
+    phone: '(XX) X XXXX-XXXX',
   },
 }
