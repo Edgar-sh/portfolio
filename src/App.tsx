@@ -1,27 +1,20 @@
-// ============================================================
-// App.tsx — Main page orchestrator
-// Consumes portfolioData.ts exclusively — zero hardcoded content
-// ============================================================
-
-import { heroData, aboutData, techCategories, projects, contactData, socialLinks } from "./data/portfolioData";
-import { Navbar }           from "./components/Navbar";
-import { HeroSection }      from "./components/HeroSection";
-import { AboutSection }     from "./components/AboutSection";
-import { TechSection }      from "./components/TechSection";
-import { ProjectsSection }  from "./components/ProjectsSection";
-import { ContactSection }   from "./components/ContactSection";
+import { useState } from 'react'
+import { Header, type Language } from './components/Header'
 
 export default function App() {
+  const [language, setLanguage] = useState<Language>('EN_US')
+
   return (
-    <div className="min-h-screen bg-slate-950 text-white antialiased">
-      <Navbar />
-      <main>
-        <HeroSection    data={heroData} />
-        <AboutSection   data={aboutData} />
-        <TechSection    categories={techCategories} />
-        <ProjectsSection projects={projects} />
-        <ContactSection  data={contactData} socialLinks={socialLinks} />
-      </main>
+    <div className="max-w-[1280px] mx-auto px-6 py-[50px] w-full box-border">
+      <Header
+        currentLanguage={language}
+        onLanguageChange={(lang) => setLanguage(lang)}
+        onTalkClick={() => {
+          window.location.href = 'mailto:Edgar.silva@dcx.ufpb.br'
+        }}
+      />
     </div>
-  );
+  )
 }
+
+
