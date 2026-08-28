@@ -101,7 +101,7 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
             <div className="flex flex-col gap-4 sm:gap-5 text-sm font-medium" data-name="SocialMedia">
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/edgar-henrique-b34962320/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 group no-underline text-inherit focus-visible:outline-2 focus-visible:outline-[#010101] rounded-lg w-fit"
@@ -117,7 +117,7 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
 
               {/* Instagram */}
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/henriqueapenas_/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 group no-underline text-inherit focus-visible:outline-2 focus-visible:outline-[#010101] rounded-lg w-fit"

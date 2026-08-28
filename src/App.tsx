@@ -3,6 +3,7 @@ import { Header, type Language } from './components/Header'
 import { HeroSection } from './components/HeroSection'
 import { AboutSection } from './components/AboutSection'
 import { TechnologiesSection } from './components/TechnologiesSection'
+import { ProjectsSection } from './components/ProjectsSection'
 
 export default function App() {
   const [language, setLanguage] = useState<Language>('EN_US')
@@ -24,6 +25,7 @@ export default function App() {
         <HeroSection language={language} />
         <AboutSection language={language} />
         <TechnologiesSection language={language} />
+        <ProjectsSection language={language} />
       </main>
     </div>
   )

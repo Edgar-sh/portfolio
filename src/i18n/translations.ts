@@ -35,6 +35,41 @@ export interface TechnologiesTranslations {
   title: string
 }
 
+export interface ProjectTag {
+  name: string
+  icon?: 'java' | 'javalin' | 'thymeleaf' | 'javascript' | 'figma' | 'gimp'
+}
+
+export type ProjectCategory = 'all' | 'fullstack' | 'uiux' | 'graphic'
+
+export interface ProjectLink {
+  type: 'github' | 'website' | 'playstore'
+  label: string
+  url: string
+}
+
+export interface ProjectItem {
+  id: string
+  title: string
+  categories: ProjectCategory[]
+  description: string
+  image: string
+  tags: ProjectTag[]
+  links: ProjectLink[]
+}
+
+export interface FilterButton {
+  key: ProjectCategory
+  label: string
+}
+
+export interface ProjectsTranslations {
+  title: string
+  subtitle: string
+  filters: FilterButton[]
+  projects: ProjectItem[]
+}
+
 export const headerTranslations: Record<Language, HeaderTranslations> = {
   EN_US: {
     about: 'About',
@@ -126,5 +161,122 @@ export const technologiesTranslations: Record<Language, TechnologiesTranslations
   },
   PT_BR: {
     title: 'Tecnologias',
+  },
+}
+
+export const projectsTranslations: Record<Language, ProjectsTranslations> = {
+  EN_US: {
+    title: 'Projects',
+    subtitle: '// Featured systems, applications, and digital products.',
+    filters: [
+      { key: 'all', label: 'All' },
+      { key: 'fullstack', label: 'Fullstack' },
+      { key: 'uiux', label: 'UI/UX Designer' },
+      { key: 'graphic', label: 'Graphic Design' },
+    ],
+    projects: [
+      {
+        id: 'stackberry',
+        title: 'StackBerry',
+        categories: ['all', 'fullstack'],
+        description:
+          'Complete web system for order digitalization and internal operational management of açaí shops. MVC architecture with Java backend, server-side templates, and a functional workflow-oriented interface.',
+        image: 'stackberry',
+        tags: [
+          { name: 'Java', icon: 'java' },
+          { name: 'Javalin', icon: 'javalin' },
+          { name: 'Thymeleaf', icon: 'thymeleaf' },
+          { name: 'JavaScript', icon: 'javascript' },
+        ],
+        links: [
+          {
+            type: 'github',
+            label: 'Github',
+            url: 'https://github.com/randersonranniery7/StackBerry-sistema-de-gerenciamento-para-acaiterias',
+          },
+        ],
+      },
+      {
+        id: 'minhas-compras',
+        title: 'Minhas Compras',
+        categories: ['all', 'uiux', 'graphic'],
+        description:
+          'Prototyped core web and mobile screens in Figma and strategically designed official showcase screenshots for the Google Play Store.',
+        image: 'minhas-compras',
+        tags: [
+          { name: 'Figma', icon: 'figma' },
+          { name: 'GIMP', icon: 'gimp' },
+        ],
+        links: [
+          {
+            type: 'website',
+            label: 'Website',
+            url: 'https://minhascomprasapp.com/',
+          },
+          {
+            type: 'playstore',
+            label: 'Play Store',
+            url: 'https://play.google.com/store/apps/details?id=com.devemanoel.myshoppinglist',
+          },
+        ],
+      },
+    ],
+  },
+  PT_BR: {
+    title: 'Projetos',
+    subtitle: '// Sistemas em destaque, aplicações e produtos digitais.',
+    filters: [
+      { key: 'all', label: 'Todos' },
+      { key: 'fullstack', label: 'Fullstack' },
+      { key: 'uiux', label: 'UI/UX Designer' },
+      { key: 'graphic', label: 'Design Gráfico' },
+    ],
+    projects: [
+      {
+        id: 'stackberry',
+        title: 'StackBerry',
+        categories: ['all', 'fullstack'],
+        description:
+          'Sistema web completo para digitalização de pedidos e gerenciamento operacional interno de açaiterias. Arquitetura MVC com backend Java, templates server-side e interface funcional orientada ao fluxo de trabalho da operação.',
+        image: 'stackberry',
+        tags: [
+          { name: 'Java', icon: 'java' },
+          { name: 'Javalin', icon: 'javalin' },
+          { name: 'Thymeleaf', icon: 'thymeleaf' },
+          { name: 'JavaScript', icon: 'javascript' },
+        ],
+        links: [
+          {
+            type: 'github',
+            label: 'Github',
+            url: 'https://github.com/randersonranniery7/StackBerry-sistema-de-gerenciamento-para-acaiterias',
+          },
+        ],
+      },
+      {
+        id: 'minhas-compras',
+        title: 'Minhas Compras',
+        categories: ['all', 'uiux', 'graphic'],
+        description:
+          'Prototipação de telas do aplicativo e do site oficial no Figma, além do design estratégico das screenshots oficiais publicadas na Google Play Store.',
+        image: 'minhas-compras',
+        tags: [
+          { name: 'Figma', icon: 'figma' },
+          { name: 'GIMP', icon: 'gimp' },
+        ],
+        links: [
+          {
+            type: 'website',
+            label: 'Website',
+            url: 'https://minhascomprasapp.com/',
+          },
+          {
+            type: 'playstore',
+            label: 'Play Store',
+            url: 'https://play.google.com/store/apps/details?id=com.devemanoel.myshoppinglist',
+          },
+        ],
+      },
+    ],
   },
 }
