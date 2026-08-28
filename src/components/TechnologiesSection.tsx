@@ -22,7 +22,7 @@ const proficiencies: ProficiencyItem[] = [
   { name: 'Java / Spring Boot', filled: 7 },
   { name: 'Figma', filled: 9 },
   { name: 'React / Typescript', filled: 8 },
-  { name: 'SQL / SQL Server', filled: 6 },
+  { name: 'SQL / PgSQL', filled: 6 },
   { name: 'Tailwind CSS / HTML', filled: 9 },
 ]
 
@@ -69,14 +69,14 @@ export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionP
       {/* Main Content: Proficiency Level + Tech Stack */}
       <div className="flex flex-col lg:flex-row items-stretch justify-between gap-12 lg:gap-8 w-full">
         {/* Left Column: Proficiency Level */}
-        <div className="flex flex-col gap-6 w-full lg:max-w-[480px]">
+        <div className="flex flex-col gap-6 w-full lg:w-auto lg:shrink-0 lg:max-w-[530px]">
           {/* Header comment */}
           <span className="text-[#838383] text-[18px] sm:text-[20px] font-normal select-none">
             {'/* proficiency level */'}
           </span>
 
           {/* Proficiency Items List */}
-          <div className="flex flex-col gap-5 sm:gap-6 py-2">
+          <div className="flex flex-col gap-[15px] py-2 w-full">
             {proficiencies.map((item) => {
               const total = item.total ?? 10
               const empty = total - item.filled
@@ -84,10 +84,10 @@ export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionP
               return (
                 <div
                   key={item.name}
-                  className="flex items-center gap-3 sm:gap-4 flex-wrap sm:flex-nowrap"
+                  className="flex items-center gap-2 sm:gap-[10px] flex-nowrap"
                 >
                   {/* Gauge indicator: [■■■■■■■□□□] */}
-                  <span className="text-[16px] sm:text-[20px] font-mono tracking-widest shrink-0 select-none">
+                  <span className="text-[14px] min-[380px]:text-[16px] sm:text-[19px] lg:text-[20px] font-inter shrink-0 select-none leading-none tracking-[0.5px] whitespace-nowrap">
                     <span className="text-black">[</span>
                     <span className="text-[#FBCFDE]">{'■'.repeat(item.filled)}</span>
                     <span className="text-black">{'□'.repeat(empty)}</span>
@@ -95,7 +95,7 @@ export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionP
                   </span>
 
                   {/* Technology Name */}
-                  <span className="text-[18px] sm:text-[22px] lg:text-[24px] font-semibold text-black leading-tight">
+                  <span className="text-[14px] min-[380px]:text-[16px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-semibold text-black leading-tight whitespace-nowrap">
                     {item.name}
                   </span>
                 </div>
