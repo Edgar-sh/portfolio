@@ -2,6 +2,8 @@
 
 Personal portfolio designed to showcase my work in software development, UI/UX design, and end-to-end digital solutions.
 
+Live: https://edgardev.codes
+
 The project was conceptualized and prototyped in Figma, focusing on clean visual hierarchy, a monospaced aesthetic, and high fidelity across both mobile and desktop devices.
 
 ## Tech Stack
@@ -61,6 +63,7 @@ The project was conceptualized and prototyped in Figma, focusing on clean visual
 
 ## Contact
 
+- Website: https://edgardev.codes
 - GitHub: https://github.com/Edgar-sh
 - LinkedIn: https://www.linkedin.com/in/edgar-henrique-b34962320/
 - Instagram: https://www.instagram.com/henriqueapenas_/
