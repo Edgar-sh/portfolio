@@ -199,7 +199,7 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
       {
         id: 'minhas-compras',
         title: 'Minhas Compras',
-        categories: ['all', 'uiux', 'graphic'],
+        categories: ['all', 'uiux'],
         description:
           'Prototyped core web and mobile screens in Figma and strategically designed official showcase screenshots for the Google Play Store.',
         image: 'minhas-compras',
@@ -217,6 +217,49 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
             type: 'playstore',
             label: 'Play Store',
             url: 'https://play.google.com/store/apps/details?id=com.devemanoel.myshoppinglist',
+          },
+        ],
+      },
+      {
+        id: 'brio-cafeteria',
+        title: 'Brio Cafetéria',
+        categories: ['all', 'uiux'],
+        description:
+          'Mobile-first digital menu prototyping for Brio Cafeteria, featuring intuitive navigation, dietary restriction filters, and real-time item customization.',
+        image: 'brio-cafeteria',
+        tags: [
+          { name: 'Figma', icon: 'figma' },
+          { name: 'GIMP', icon: 'gimp' },
+        ],
+        links: [],
+      },
+      {
+        id: 'camisa-si',
+        title: 'Class T-Shirt — SI UFPB 2024.1',
+        categories: ['all', 'graphic'],
+        description:
+          'Official t-shirt design and visual identity for the Information Systems degree at UFPB (Class of 2024.1). Graphic concept development blending academic technology identity with modern aesthetics for apparel printing.',
+        image: 'camisa-si',
+        tags: [
+          { name: 'GIMP', icon: 'gimp' },
+        ],
+        links: [],
+      },
+      {
+        id: 'smart-protector-launcher',
+        title: 'SmartProtectorLauncher',
+        categories: ['all', 'graphic'],
+        description:
+          'Created the official mobile app logo and icon, optimized for brand recognition and visibility on the Google Play Store.',
+        image: 'smart-protector-launcher',
+        tags: [
+          { name: 'Figma', icon: 'figma' },
+        ],
+        links: [
+          {
+            type: 'playstore',
+            label: 'Play Store',
+            url: 'https://play.google.com/store/apps/details?id=com.emanoeldev.smartprotectorlauncher',
           },
         ],
       },
@@ -256,7 +299,7 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
       {
         id: 'minhas-compras',
         title: 'Minhas Compras',
-        categories: ['all', 'uiux', 'graphic'],
+        categories: ['all', 'uiux'],
         description:
           'Prototipação de telas do aplicativo e do site oficial no Figma, além do design estratégico das screenshots oficiais publicadas na Google Play Store.',
         image: 'minhas-compras',
@@ -274,6 +317,49 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
             type: 'playstore',
             label: 'Play Store',
             url: 'https://play.google.com/store/apps/details?id=com.devemanoel.myshoppinglist',
+          },
+        ],
+      },
+      {
+        id: 'brio-cafeteria',
+        title: 'Brio Cafetéria',
+        categories: ['all', 'uiux'],
+        description:
+          'Prototipação de cardápio digital mobile-first para a Brio Cafetéria, com navegação intuitiva, filtros de restrições alimentares e personalização de itens em tempo real.',
+        image: 'brio-cafeteria',
+        tags: [
+          { name: 'Figma', icon: 'figma' },
+          { name: 'GIMP', icon: 'gimp' },
+        ],
+        links: [],
+      },
+      {
+        id: 'camisa-si',
+        title: 'Camisa de Turma — SI UFPB 2024.1',
+        categories: ['all', 'graphic'],
+        description:
+          'Design oficial e identidade visual da camisa da turma de Sistemas de Informação da UFPB (Turma 2024.1). Desenvolvimento de conceito gráfico unindo identidade acadêmica de tecnologia e estética moderna para estamparia.',
+        image: 'camisa-si',
+        tags: [
+          { name: 'GIMP', icon: 'gimp' },
+        ],
+        links: [],
+      },
+      {
+        id: 'smart-protector-launcher',
+        title: 'SmartProtectorLauncher',
+        categories: ['all', 'graphic'],
+        description:
+          'Criação do logotipo e ícone oficial do aplicativo móvel, otimizados para reconhecimento de marca e visibilidade na Google Play Store.',
+        image: 'smart-protector-launcher',
+        tags: [
+          { name: 'Figma', icon: 'figma' },
+        ],
+        links: [
+          {
+            type: 'playstore',
+            label: 'Play Store',
+            url: 'https://play.google.com/store/apps/details?id=com.emanoeldev.smartprotectorlauncher',
           },
         ],
       },

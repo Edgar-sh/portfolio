@@ -24,13 +24,17 @@ export function ProjectsSection({ language = 'EN_US' }: ProjectsSectionProps) {
 
   const handlePrev = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -400, behavior: 'smooth' })
+      const cardWidth = (carouselRef.current.firstElementChild as HTMLElement)?.offsetWidth ?? 455
+      const gap = window.innerWidth >= 1024 ? 75 : 24
+      carouselRef.current.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' })
     }
   }
 
   const handleNext = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 400, behavior: 'smooth' })
+      const cardWidth = (carouselRef.current.firstElementChild as HTMLElement)?.offsetWidth ?? 455
+      const gap = window.innerWidth >= 1024 ? 75 : 24
+      carouselRef.current.scrollBy({ left: cardWidth + gap, behavior: 'smooth' })
     }
   }
 
@@ -99,14 +103,20 @@ export function ProjectsSection({ language = 'EN_US' }: ProjectsSectionProps) {
         {/* Projects Grid / Carousel */}
         <div
           ref={carouselRef}
-          className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-[75px] max-w-[985px] mx-auto items-stretch justify-center"
+          className="flex-1 flex gap-6 lg:gap-[75px] max-w-[985px] mx-auto items-stretch overflow-x-auto scroll-smooth snap-x snap-mandatory py-2 no-scrollbar"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {filteredProjects.length > 0 ? (
             filteredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <div
+                key={project.id}
+                className="w-full min-w-[280px] sm:min-w-[360px] md:min-w-[455px] max-w-[455px] snap-center shrink-0"
+              >
+                <ProjectCard project={project} />
+              </div>
             ))
           ) : (
-            <div className="col-span-full py-12 text-center text-[#838383] text-[16px] font-light">
+            <div className="w-full py-12 text-center text-[#838383] text-[16px] font-light">
               // No projects found in this category.
             </div>
           )}
