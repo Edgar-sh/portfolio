@@ -54,8 +54,8 @@ export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionP
       aria-label="Technologies Section"
     >
       {/* Title + Subtitle + Horizontal Divider */}
-      <div className="flex flex-col gap-3 sm:gap-6 w-full">
-        <div className="flex flex-col gap-1.5 sm:gap-2 w-full">
+      <div className="flex flex-col gap-4 sm:gap-8 w-full">
+        <div className="flex flex-col gap-2 sm:gap-4 w-full">
           <h2 className="text-[32px] min-[400px]:text-[38px] sm:text-[64px] md:text-[90px] lg:text-[126px] font-semibold leading-[1] sm:leading-[0.92] tracking-tight text-black select-none">
             {t.title}
           </h2>

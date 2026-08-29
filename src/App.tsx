@@ -4,6 +4,7 @@ import { HeroSection } from './components/HeroSection'
 import { AboutSection } from './components/AboutSection'
 import { TechnologiesSection } from './components/TechnologiesSection'
 import { ProjectsSection } from './components/ProjectsSection'
+import { Footer } from './components/Footer'
 
 export default function App() {
   const [language, setLanguage] = useState<Language>('EN_US')
@@ -27,6 +28,7 @@ export default function App() {
         <TechnologiesSection language={language} />
         <ProjectsSection language={language} />
       </main>
+      <Footer language={language} />
     </div>
   )
 }

@@ -36,6 +36,10 @@ export interface TechnologiesTranslations {
   subtitle: string
 }
 
+export interface FooterTranslations {
+  copyright: string
+}
+
 export interface ProjectTag {
   name: string
   icon?: 'java' | 'javalin' | 'thymeleaf' | 'javascript' | 'figma' | 'gimp'
@@ -370,5 +374,14 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
         ],
       },
     ],
+  },
+}
+
+export const footerTranslations: Record<Language, FooterTranslations> = {
+  EN_US: {
+    copyright: '© 2026 Edgar-sh. All rights reserved.',
+  },
+  PT_BR: {
+    copyright: '© 2026 Edgar-sh. Todos os direitos reservados.',
   },
 }
