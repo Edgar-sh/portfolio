@@ -18,16 +18,16 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
   return (
     <section
       id="about"
-      className="w-full max-w-[1180px] mx-auto py-12 sm:py-16 lg:py-20 flex flex-col gap-8 lg:gap-12 box-border"
+      className="w-full max-w-[1180px] mx-auto py-8 sm:py-16 lg:py-20 flex flex-col gap-6 sm:gap-8 lg:gap-12 box-border"
       aria-label="About Section"
     >
       {/* Title + Arrow Icon + Horizontal Divider */}
-      <div className="flex flex-col gap-4 sm:gap-6 w-full">
+      <div className="flex flex-col gap-3 sm:gap-6 w-full">
         <div className="flex items-center justify-between w-full">
-          <h2 className="text-[52px] sm:text-[80px] md:text-[100px] lg:text-[126px] font-medium leading-[0.92] tracking-tight text-black select-none">
+          <h2 className="text-[36px] sm:text-[64px] md:text-[90px] lg:text-[126px] font-medium leading-[0.92] tracking-tight text-black select-none">
             {t.title}
           </h2>
-          <div className="w-[54px] h-[54px] sm:w-[70px] sm:h-[70px] lg:w-[90px] lg:h-[90px] shrink-0">
+          <div className="w-[40px] h-[40px] sm:w-[70px] sm:h-[70px] lg:w-[90px] lg:h-[90px] shrink-0">
             <img
               src={arrowDownLeft}
               alt="Arrow pointing down"

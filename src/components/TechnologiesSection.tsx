@@ -50,16 +50,16 @@ export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionP
   return (
     <section
       id="technologies"
-      className="w-full max-w-[1180px] mx-auto py-12 sm:py-16 lg:py-20 flex flex-col gap-8 lg:gap-12 box-border"
+      className="w-full max-w-[1180px] mx-auto py-8 sm:py-16 lg:py-20 flex flex-col gap-6 sm:gap-8 lg:gap-12 box-border"
       aria-label="Technologies Section"
     >
       {/* Title + Subtitle + Horizontal Divider */}
-      <div className="flex flex-col gap-4 sm:gap-6 w-full">
-        <div className="flex flex-col gap-2 w-full">
-          <h2 className="text-[52px] sm:text-[80px] md:text-[100px] lg:text-[126px] font-semibold leading-[0.92] tracking-tight text-black select-none">
+      <div className="flex flex-col gap-3 sm:gap-6 w-full">
+        <div className="flex flex-col gap-1.5 sm:gap-2 w-full">
+          <h2 className="text-[32px] min-[400px]:text-[38px] sm:text-[64px] md:text-[90px] lg:text-[126px] font-semibold leading-[1] sm:leading-[0.92] tracking-tight text-black select-none">
             {t.title}
           </h2>
-          <p className="text-[14px] sm:text-[15px] font-light text-[#838383]">
+          <p className="text-[13px] sm:text-[15px] font-light text-[#838383]">
             // Tools and languages that power my daily workflow.
           </p>
         </div>
@@ -67,11 +67,11 @@ export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionP
       </div>
 
       {/* Main Content: Proficiency Level + Tech Stack */}
-      <div className="flex flex-col lg:flex-row items-stretch justify-between gap-12 lg:gap-8 w-full">
+      <div className="flex flex-col lg:flex-row items-stretch justify-between gap-8 lg:gap-8 w-full">
         {/* Left Column: Proficiency Level */}
-        <div className="flex flex-col gap-6 w-full lg:w-auto lg:shrink-0 lg:max-w-[530px]">
+        <div className="flex flex-col gap-4 sm:gap-6 w-full lg:w-auto lg:shrink-0 lg:max-w-[530px]">
           {/* Header comment */}
-          <span className="text-[#838383] text-[18px] sm:text-[20px] font-normal select-none">
+          <span className="text-[#838383] text-[15px] sm:text-[20px] font-normal select-none">
             {'/* proficiency level */'}
           </span>
 
