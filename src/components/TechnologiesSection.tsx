@@ -1,3 +1,5 @@
+import { useRef, useState, useEffect } from 'react'
+import { useInView } from 'framer-motion'
 import springIcon from '../assets/tech/spring.svg'
 import javaIcon from '../assets/tech/java.svg'
 import pgsqlIcon from '../assets/tech/pgsql.svg'
@@ -46,10 +48,30 @@ const techCards: TechCard[] = [
 
 export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionProps) {
   const t = technologiesTranslations[language]
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 })
+  const [animationStep, setAnimationStep] = useState(0)
+
+  useEffect(() => {
+    if (!isInView) return
+
+    let current = 0
+    const maxSteps = 10
+    const interval = setInterval(() => {
+      current += 1
+      setAnimationStep(current)
+      if (current >= maxSteps) {
+        clearInterval(interval)
+      }
+    }, 60)
+
+    return () => clearInterval(interval)
+  }, [isInView])
 
   return (
     <section
       id="technologies"
+      ref={sectionRef}
       className="w-full max-w-[1180px] mx-auto py-8 sm:py-16 lg:py-20 flex flex-col gap-6 sm:gap-8 lg:gap-12 box-border"
       aria-label="Technologies Section"
     >
@@ -79,7 +101,8 @@ export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionP
           <div className="flex flex-col gap-[15px] py-2 w-full">
             {proficiencies.map((item) => {
               const total = item.total ?? 10
-              const empty = total - item.filled
+              const currentFilled = isInView ? Math.min(item.filled, animationStep) : 0
+              const empty = total - currentFilled
 
               return (
                 <div
@@ -89,7 +112,7 @@ export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionP
                   {/* Gauge indicator: [■■■■■■■□□□] */}
                   <span className="text-[14px] min-[380px]:text-[16px] sm:text-[19px] lg:text-[20px] font-inter shrink-0 select-none leading-none tracking-[0.5px] whitespace-nowrap">
                     <span className="text-black">[</span>
-                    <span className="text-[#FBCFDE]">{'■'.repeat(item.filled)}</span>
+                    <span className="text-[#FBCFDE]">{'■'.repeat(currentFilled)}</span>
                     <span className="text-black">{'□'.repeat(empty)}</span>
                     <span className="text-black">]</span>
                   </span>
