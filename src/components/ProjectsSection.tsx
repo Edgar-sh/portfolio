@@ -1,93 +1,146 @@
-// ============================================================
-// ProjectsSection.tsx — Maps project data to ProjectCard grid
-// ============================================================
+import { useState, useMemo, useRef } from 'react'
+import arrowLeftIcon from '../assets/projects/arrow-left.svg'
+import arrowRightIcon from '../assets/projects/arrow-right.svg'
+import { ProjectCard } from './ProjectCard'
+import {
+  type Language,
+  type ProjectCategory,
+  projectsTranslations,
+} from '../i18n/translations'
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import type { Project } from "../data/types";
-import { ProjectCard } from "./ProjectCard";
-import { SectionReveal, SectionLabel } from "./SectionReveal";
-
-interface ProjectsSectionProps {
-  projects: Project[];
+export interface ProjectsSectionProps {
+  language?: Language
 }
 
-// Derive unique types from data automatically (no manual config needed)
-function getTypes(projects: Project[]) {
-  const seen = new Set<string>();
-  const types: { type: string; label: string }[] = [{ type: "all", label: "Todos" }];
-  for (const p of projects) {
-    if (!seen.has(p.type)) {
-      seen.add(p.type);
-      types.push({ type: p.type, label: p.typeLabel });
+export function ProjectsSection({ language = 'EN_US' }: ProjectsSectionProps) {
+  const t = projectsTranslations[language]
+  const [activeFilter, setActiveFilter] = useState<ProjectCategory>('all')
+  const carouselRef = useRef<HTMLDivElement>(null)
+
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === 'all') return t.projects
+    return t.projects.filter((p) => p.categories.includes(activeFilter))
+  }, [t.projects, activeFilter])
+
+  const handlePrev = () => {
+    if (carouselRef.current) {
+      const card = carouselRef.current.firstElementChild as HTMLElement
+      const cardWidth = card?.offsetWidth ?? 455
+      const gap = parseInt(window.getComputedStyle(carouselRef.current).gap || '24', 10) || 24
+      carouselRef.current.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' })
     }
   }
-  return types;
-}
 
-export function ProjectsSection({ projects }: ProjectsSectionProps) {
-  const [filter, setFilter] = useState("all");
-  const types = getTypes(projects);
-
-  const filtered =
-    filter === "all" ? projects : projects.filter((p) => p.type === filter);
+  const handleNext = () => {
+    if (carouselRef.current) {
+      const card = carouselRef.current.firstElementChild as HTMLElement
+      const cardWidth = card?.offsetWidth ?? 455
+      const gap = parseInt(window.getComputedStyle(carouselRef.current).gap || '24', 10) || 24
+      carouselRef.current.scrollBy({ left: cardWidth + gap, behavior: 'smooth' })
+    }
+  }
 
   return (
-    <section id="projects" className="py-28 relative">
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[800px] h-[400px] bg-fuchsia-600/5 blur-[120px] rounded-full pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Heading */}
-        <SectionReveal className="mb-12 text-center">
-          <SectionLabel color="pink">Portfólio</SectionLabel>
-          <h2 className="text-4xl sm:text-5xl font-display font-bold text-white mt-4">
-            Projetos Selecionados
+    <section
+      id="projects"
+      className="w-full max-w-[1240px] mx-auto py-8 sm:py-16 lg:py-20 flex flex-col gap-6 sm:gap-8 lg:gap-12 box-border"
+      aria-label="Projects Section"
+    >
+      {/* Section Header */}
+      <div className="flex flex-col items-center gap-4 sm:gap-8 w-full text-center">
+        <div className="flex flex-col items-center gap-2 sm:gap-4 w-full">
+          <h2 className="text-[36px] sm:text-[64px] md:text-[90px] lg:text-[126px] font-semibold leading-none tracking-tight text-black select-none text-center">
+            {t.title}
           </h2>
-          <p className="text-zinc-500 mt-3 text-base max-w-lg mx-auto">
-            Uma seleção dos trabalhos que melhor refletem minha capacidade de criar soluções completas.
+          <p className="text-[13px] sm:text-[15px] font-light text-[#838383] text-center">
+            {t.subtitle}
           </p>
-        </SectionReveal>
+        </div>
+        <div className="w-full h-[2px] bg-[#E5E7EB]" role="separator" aria-hidden="true" />
+      </div>
 
-        {/* Filter chips */}
-        <SectionReveal delay={0.1} className="flex flex-wrap justify-center gap-2 mb-12">
-          {types.map(({ type, label }) => (
+      {/* Filter Buttons */}
+      <div
+        className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 w-full"
+        role="group"
+        aria-label="Project Categories"
+      >
+        {t.filters.map((filter) => {
+          const isActive = activeFilter === filter.key
+          return (
             <button
-              key={type}
-              onClick={() => setFilter(type)}
-              className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 border ${
-                filter === type
-                  ? "border-pink-500/50 text-pink-300 bg-pink-500/10"
-                  : "border-zinc-800 text-zinc-500 hover:border-zinc-600 hover:text-zinc-300"
+              key={filter.key}
+              type="button"
+              onClick={() => setActiveFilter(filter.key)}
+              className={`px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-[30px] border-2 border-[#010101] text-[13px] sm:text-[16px] font-medium transition-colors duration-200 cursor-pointer select-none ${
+                isActive
+                  ? 'bg-[#FBCFDE] text-black font-semibold hover:bg-[#010101] hover:text-white'
+                  : 'bg-white text-black hover:bg-[#010101] hover:text-white'
               }`}
+              aria-pressed={isActive}
             >
-              {filter === type && (
-                <motion.span
-                  layoutId="project-filter"
-                  className="absolute inset-0 rounded-full bg-pink-500/10"
-                  transition={{ duration: 0.25 }}
-                />
-              )}
-              <span className="relative">{label}</span>
+              {filter.label}
             </button>
-          ))}
-        </SectionReveal>
+          )
+        })}
+      </div>
 
-        {/* Cards grid */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={filter}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
-          >
-            {filtered.map((project, i) => (
-              <ProjectCard key={project.id} project={project} index={i} />
-            ))}
-          </motion.div>
-        </AnimatePresence>
+      {/* Projects Showcase with Navigation Arrows */}
+      <div className="flex items-center justify-center gap-2 md:gap-4 lg:gap-6 w-full relative">
+        {/* Left Arrow Button (Desktop only) */}
+        <button
+          type="button"
+          onClick={handlePrev}
+          className="hidden md:flex w-12 h-12 lg:w-[54px] lg:h-[54px] shrink-0 items-center justify-center rounded-full hover:scale-110 active:scale-95 transition-transform cursor-pointer focus-visible:outline-2 focus-visible:outline-black"
+          aria-label="Previous project"
+        >
+          <img
+            src={arrowLeftIcon}
+            alt=""
+            className="w-full h-full object-contain"
+            aria-hidden="true"
+          />
+        </button>
+
+        {/* Projects Grid / Carousel */}
+        <div
+          ref={carouselRef}
+          className="w-full flex-1 flex gap-4 md:gap-6 xl:gap-[75px] max-w-[1020px] items-stretch overflow-x-auto scroll-smooth snap-x snap-mandatory py-3 px-2 sm:px-4 md:px-2 no-scrollbar"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project) => (
+              <div
+                key={project.id}
+                className="w-[260px] min-[360px]:w-[275px] min-[400px]:w-[290px] md:w-[455px] snap-center shrink-0"
+              >
+                <ProjectCard project={project} />
+              </div>
+            ))
+          ) : (
+            <div className="w-full py-12 text-center text-[#838383] text-[16px] font-light">
+              {t.emptyMessage}
+            </div>
+          )}
+        </div>
+
+        {/* Right Arrow Button (Desktop only) */}
+        <button
+          type="button"
+          onClick={handleNext}
+          className="hidden md:flex w-12 h-12 lg:w-[54px] lg:h-[54px] shrink-0 items-center justify-center rounded-full hover:scale-110 active:scale-95 transition-transform cursor-pointer focus-visible:outline-2 focus-visible:outline-black"
+          aria-label="Next project"
+        >
+          <img
+            src={arrowRightIcon}
+            alt=""
+            className="w-full h-full object-contain"
+            aria-hidden="true"
+          />
+        </button>
       </div>
     </section>
-  );
+  )
 }
+
+export default ProjectsSection

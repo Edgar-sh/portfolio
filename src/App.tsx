@@ -1,27 +1,36 @@
-// ============================================================
-// App.tsx — Main page orchestrator
-// Consumes portfolioData.ts exclusively — zero hardcoded content
-// ============================================================
-
-import { heroData, aboutData, techCategories, projects, contactData, socialLinks } from "./data/portfolioData";
-import { Navbar }           from "./components/Navbar";
-import { HeroSection }      from "./components/HeroSection";
-import { AboutSection }     from "./components/AboutSection";
-import { TechSection }      from "./components/TechSection";
-import { ProjectsSection }  from "./components/ProjectsSection";
-import { ContactSection }   from "./components/ContactSection";
+import { useState, useEffect } from 'react'
+import { Header, type Language } from './components/Header'
+import { HeroSection } from './components/HeroSection'
+import { AboutSection } from './components/AboutSection'
+import { TechnologiesSection } from './components/TechnologiesSection'
+import { ProjectsSection } from './components/ProjectsSection'
+import { Footer } from './components/Footer'
 
 export default function App() {
+  const [language, setLanguage] = useState<Language>('EN_US')
+
+  useEffect(() => {
+    document.documentElement.lang = language === 'PT_BR' ? 'pt-BR' : 'en'
+  }, [language])
+
   return (
-    <div className="min-h-screen bg-slate-950 text-white antialiased">
-      <Navbar />
-      <main>
-        <HeroSection    data={heroData} />
-        <AboutSection   data={aboutData} />
-        <TechSection    categories={techCategories} />
-        <ProjectsSection projects={projects} />
-        <ContactSection  data={contactData} socialLinks={socialLinks} />
+    <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-6 md:py-[50px] w-full box-border flex flex-col gap-12 sm:gap-16">
+      <Header
+        currentLanguage={language}
+        onLanguageChange={(lang) => setLanguage(lang)}
+        onTalkClick={() => {
+          window.location.href = 'mailto:Edgar.silva@dcx.ufpb.br'
+        }}
+      />
+      <main className="flex flex-col gap-16 sm:gap-24">
+        <HeroSection language={language} />
+        <AboutSection language={language} />
+        <TechnologiesSection language={language} />
+        <ProjectsSection language={language} />
       </main>
+      <Footer language={language} />
     </div>
-  );
+  )
 }
+
+
