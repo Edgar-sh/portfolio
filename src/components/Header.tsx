@@ -87,16 +87,16 @@ export function Header({
         <a
           href="#hero"
           className="flex items-center gap-2.5 md:gap-5 no-underline text-inherit cursor-pointer select-none"
-          aria-label="EdgarDev Home"
+          aria-label="Edgar-sh Home"
         >
           <div
-            className="w-[30px] h-[30px] bg-[#FBCFDE] rounded-tl-[33px] rounded-tr-[33px] rounded-br-[33px] rounded-bl-0 flex items-center justify-center text-white font-normal text-xl leading-none shrink-0"
+            className="w-[30px] h-[30px] bg-[#FBCFDE] rounded-tl-[33px] rounded-tr-[33px] rounded-br-[33px] rounded-bl-0 flex items-center justify-center text-white font-semibold text-xl leading-none shrink-0"
             aria-hidden="true"
           >
-            H
+            E
           </div>
           <span className="font-medium text-xl text-[#010101] leading-none">
-            EdgarDev
+            Edgar-sh
           </span>
         </a>
 

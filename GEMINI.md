@@ -45,7 +45,7 @@ Este documento define as regras de negócio, convenções técnicas, tokens visu
 
 ### Header & Navegação
 - **Desktop (`≥ 768px`)**:
-  - **Esquerda**: Logo (`Icon 30x30 rosa` com `H` + texto `EdgarDev`, gap de 20px).
+  - **Esquerda**: Logo (`Icon 30x30 rosa` com `E` + texto `Edgar-sh`, gap de 20px).
   - **Centro**: Links de navegação (`About` / `Sobre`, `Technologies` / `Tecnologias`, `Projects` / `Projetos`).
   - **Direita**: Botão `"Let's talk"` / `"Vamos conversar"` (borda 2px, cantos 30px) + Seletor de idioma em dropdown (`EN_US` / `PT_BR`).
 - **Mobile (`< 768px`)**:
