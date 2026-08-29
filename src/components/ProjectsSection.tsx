@@ -119,7 +119,7 @@ export function ProjectsSection({ language = 'EN_US' }: ProjectsSectionProps) {
             ))
           ) : (
             <div className="w-full py-12 text-center text-[#838383] text-[16px] font-light">
-              // No projects found in this category.
+              {t.emptyMessage}
             </div>
           )}
         </div>

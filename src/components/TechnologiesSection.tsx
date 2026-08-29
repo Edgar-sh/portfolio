@@ -60,7 +60,7 @@ export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionP
             {t.title}
           </h2>
           <p className="text-[13px] sm:text-[15px] font-light text-[#838383]">
-            // Tools and languages that power my daily workflow.
+            {t.subtitle}
           </p>
         </div>
         <div className="w-full h-[2px] bg-[#E5E7EB]" role="separator" aria-hidden="true" />

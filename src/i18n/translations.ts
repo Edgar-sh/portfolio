@@ -33,6 +33,7 @@ export interface AboutTranslations {
 
 export interface TechnologiesTranslations {
   title: string
+  subtitle: string
 }
 
 export interface ProjectTag {
@@ -66,6 +67,7 @@ export interface FilterButton {
 export interface ProjectsTranslations {
   title: string
   subtitle: string
+  emptyMessage: string
   filters: FilterButton[]
   projects: ProjectItem[]
 }
@@ -158,9 +160,11 @@ export const aboutTranslations: Record<Language, AboutTranslations> = {
 export const technologiesTranslations: Record<Language, TechnologiesTranslations> = {
   EN_US: {
     title: 'Technologies',
+    subtitle: '// Tools and languages that power my daily workflow.',
   },
   PT_BR: {
     title: 'Tecnologias',
+    subtitle: '// Ferramentas e linguagens que impulsionam meu fluxo diário de desenvolvimento.',
   },
 }
 
@@ -168,6 +172,7 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
   EN_US: {
     title: 'Projects',
     subtitle: '// Featured systems, applications, and digital products.',
+    emptyMessage: '// No projects found in this category.',
     filters: [
       { key: 'all', label: 'All' },
       { key: 'fullstack', label: 'Fullstack' },
@@ -268,6 +273,7 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
   PT_BR: {
     title: 'Projetos',
     subtitle: '// Sistemas em destaque, aplicações e produtos digitais.',
+    emptyMessage: '// Nenhum projeto encontrado nesta categoria.',
     filters: [
       { key: 'all', label: 'Todos' },
       { key: 'fullstack', label: 'Fullstack' },
