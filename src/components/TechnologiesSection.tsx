@@ -110,18 +110,18 @@ export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionP
         {/* Right Column: Tech Stack Cards Grid */}
         <div className="flex flex-col gap-6 w-full lg:max-w-[580px]">
           {/* Header comment */}
-          <span className="text-[#838383] text-[18px] sm:text-[20px] font-normal select-none">
+          <span className="text-[#838383] text-[15px] sm:text-[20px] font-normal select-none">
             {'/* tech stack */'}
           </span>
 
           {/* 8 Cards Grid (2 rows x 4 columns on desktop) */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
             {techCards.map((card) => (
               <div
                 key={card.name}
-                className="flex flex-col items-center justify-center px-3 py-4 sm:px-4 sm:py-5 rounded-[20px] border-2 border-transparent hover:border-[#010101] hover:bg-[#FBCFDE]/10 transition-all duration-200 group select-none min-h-[100px]"
+                className="flex flex-col items-center justify-center px-2.5 py-3 sm:px-4 sm:py-5 rounded-[20px] border-2 border-transparent hover:border-[#010101] hover:bg-[#FBCFDE]/10 transition-all duration-200 group select-none min-h-[88px] sm:min-h-[100px]"
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+                <div className="w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
                   <img
                     src={card.icon}
                     alt=""
@@ -129,7 +129,7 @@ export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionP
                     aria-hidden="true"
                   />
                 </div>
-                <span className="mt-2 text-[14px] sm:text-[16px] lg:text-[18px] font-medium text-black text-center tracking-tight">
+                <span className="mt-1.5 sm:mt-2 text-[13px] sm:text-[16px] lg:text-[18px] font-medium text-black text-center tracking-tight">
                   {card.name}
                 </span>
               </div>

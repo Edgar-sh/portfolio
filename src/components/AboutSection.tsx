@@ -42,7 +42,7 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
       {/* Main Info Content: 3-column on desktop / stacked on mobile */}
       <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-10 lg:gap-8 w-full">
         {/* Left Column: Photo with Asymmetric Border matching height of adjacent columns */}
-        <div className="w-[260px] sm:w-[288px] h-[400px] sm:h-[447px] lg:h-auto lg:self-stretch bg-[#FBCFDE] rounded-tl-[34px] rounded-tr-[34px] rounded-br-[34px] rounded-bl-0 overflow-hidden shrink-0 shadow-sm flex">
+        <div className="w-[220px] min-[380px]:w-[240px] sm:w-[288px] h-[310px] min-[380px]:h-[340px] sm:h-[447px] lg:h-auto lg:self-stretch bg-[#FBCFDE] rounded-tl-[34px] rounded-tr-[34px] rounded-br-[34px] rounded-bl-0 overflow-hidden shrink-0 shadow-sm flex">
           <img
             src={aboutPhoto}
             alt="Edgar Silva - About photo"
@@ -91,14 +91,14 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
         <div className="hidden lg:block w-[2px] self-stretch bg-[#E5E7EB]" role="separator" aria-hidden="true" />
 
         {/* Right Column: Let's Connect + Social Links (Figma Node 32:912) + Private Contacts */}
-        <div className="flex flex-col justify-between gap-8 lg:gap-12 w-full max-w-[432px] lg:max-w-[354px] lg:self-stretch">
+        <div className="flex flex-col justify-between gap-6 sm:gap-8 lg:gap-12 w-full max-w-[432px] lg:max-w-[354px] lg:self-stretch">
           {/* Social Media Section (Node 32:912) */}
-          <div className="flex flex-col gap-5 sm:gap-6">
-            <h3 className="text-[28px] sm:text-[32px] lg:text-[36px] font-medium text-[#010101] leading-tight select-none">
+          <div className="flex flex-col gap-3.5 sm:gap-6">
+            <h3 className="text-[22px] sm:text-[28px] lg:text-[36px] font-medium text-[#010101] leading-tight select-none">
               {t.letsConnect}
             </h3>
 
-            <div className="flex flex-col gap-4 sm:gap-5 text-sm font-medium" data-name="SocialMedia">
+            <div className="flex flex-col gap-2.5 sm:gap-4 text-sm font-medium" data-name="SocialMedia">
               {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/edgar-henrique-b34962320/"
@@ -107,10 +107,10 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
                 className="flex items-center gap-2.5 group no-underline text-inherit focus-visible:outline-2 focus-visible:outline-[#010101] rounded-lg w-fit"
                 aria-label="LinkedIn Profile"
               >
-                <div className="w-9 h-9 shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
-                  <img src={linkedinIcon} alt="" className="w-9 h-9 object-contain" aria-hidden="true" />
+                <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
+                  <img src={linkedinIcon} alt="" className="w-full h-full object-contain" aria-hidden="true" />
                 </div>
-                <span className="text-[18px] sm:text-[20px] font-medium text-black group-hover:underline transition-all">
+                <span className="text-[14px] sm:text-[17px] lg:text-[20px] font-medium text-black group-hover:underline transition-all">
                   Linkedin
                 </span>
               </a>
@@ -123,10 +123,10 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
                 className="flex items-center gap-2.5 group no-underline text-inherit focus-visible:outline-2 focus-visible:outline-[#010101] rounded-lg w-fit"
                 aria-label="Instagram Profile"
               >
-                <div className="w-9 h-9 shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
-                  <img src={instagramIcon} alt="" className="w-9 h-9 object-contain" aria-hidden="true" />
+                <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
+                  <img src={instagramIcon} alt="" className="w-full h-full object-contain" aria-hidden="true" />
                 </div>
-                <span className="text-[18px] sm:text-[20px] font-medium text-black group-hover:underline transition-all">
+                <span className="text-[14px] sm:text-[17px] lg:text-[20px] font-medium text-black group-hover:underline transition-all">
                   Instagram
                 </span>
               </a>
@@ -139,10 +139,10 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
                 className="flex items-center gap-2.5 group no-underline text-inherit focus-visible:outline-2 focus-visible:outline-[#010101] rounded-lg w-fit"
                 aria-label="GitHub Profile"
               >
-                <div className="w-9 h-9 shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
-                  <img src={githubIcon} alt="" className="w-9 h-9 object-contain" aria-hidden="true" />
+                <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
+                  <img src={githubIcon} alt="" className="w-full h-full object-contain" aria-hidden="true" />
                 </div>
-                <span className="text-[18px] sm:text-[20px] font-medium text-black group-hover:underline transition-all">
+                <span className="text-[14px] sm:text-[17px] lg:text-[20px] font-medium text-black group-hover:underline transition-all">
                   Github
                 </span>
               </a>
@@ -150,27 +150,27 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
           </div>
 
           {/* Private Contact Items (Email & Phone) */}
-          <div className="flex flex-col gap-4 pt-2 lg:pt-0">
+          <div className="flex flex-col gap-2.5 sm:gap-4 pt-1 lg:pt-0">
             {/* Email Contact */}
             <a
               href={`mailto:${t.email}`}
-              className="flex items-center gap-3 group no-underline text-inherit focus-visible:outline-2 focus-visible:outline-[#010101] rounded-lg p-1 -m-1 w-fit max-w-full"
+              className="flex items-center gap-2.5 sm:gap-3 group no-underline text-inherit focus-visible:outline-2 focus-visible:outline-[#010101] rounded-lg p-1 -m-1 w-fit max-w-full"
               aria-label={`Send email to ${t.email}`}
             >
-              <div className="w-10 h-10 shrink-0 flex items-center justify-center">
-                <img src={emailIcon} alt="" className="w-10 h-10 object-contain" aria-hidden="true" />
+              <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center">
+                <img src={emailIcon} alt="" className="w-full h-full object-contain" aria-hidden="true" />
               </div>
-              <span className="text-[16px] sm:text-[18px] lg:text-[20px] font-medium text-[#010101] break-all group-hover:underline transition-all">
+              <span className="text-[13px] sm:text-[16px] lg:text-[20px] font-medium text-[#010101] break-all group-hover:underline transition-all">
                 {t.email}
               </span>
             </a>
 
             {/* Phone Contact */}
-            <div className="flex items-center gap-3 p-1 -m-1 w-fit max-w-full">
-              <div className="w-10 h-10 shrink-0 flex items-center justify-center">
-                <img src={phoneIcon} alt="" className="w-10 h-10 object-contain" aria-hidden="true" />
+            <div className="flex items-center gap-2.5 sm:gap-3 p-1 -m-1 w-fit max-w-full">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center">
+                <img src={phoneIcon} alt="" className="w-full h-full object-contain" aria-hidden="true" />
               </div>
-              <span className="text-[16px] sm:text-[18px] lg:text-[20px] font-medium text-[#010101]">
+              <span className="text-[13px] sm:text-[16px] lg:text-[20px] font-medium text-[#010101]">
                 {t.phone}
               </span>
             </div>

@@ -18,20 +18,20 @@ export function HeroSection({ language = 'EN_US' }: HeroSectionProps) {
       {/* =========================================================================
           MOBILE VARIANT (Figma Node 15:255 - Property 1=Mobile) - Display on < lg
           ========================================================================= */}
-      <div className="flex lg:hidden flex-col items-center justify-center gap-8 py-4 sm:py-8">
+      <div className="flex lg:hidden flex-col items-center justify-center gap-6 sm:gap-8 py-2 sm:py-8">
         {/* UpFigure: Greeting + Circular Avatar */}
         <div className="flex flex-col items-center justify-center w-full">
           {/* Greeting Text: "I'm Edgar Henrique" */}
-          <h1 className="text-[24px] font-medium text-black tracking-normal leading-normal text-center mb-2 select-none">
+          <h1 className="text-[22px] min-[380px]:text-[24px] font-medium text-black tracking-normal leading-normal text-center mb-2 select-none">
             {t.mobileGreetingPrefix}
             <span className="text-[#FBCFDE] font-bold">{t.name}</span>
           </h1>
 
           {/* Figure: 257px Circle + 207px Avatar */}
-          <div className="relative flex items-center justify-center w-[257px] h-[309px]">
+          <div className="relative flex items-center justify-center w-[230px] min-[380px]:w-[257px] h-[280px] min-[380px]:h-[309px]">
             {/* Pink Ellipse */}
             <div
-              className="w-[257px] h-[257px] bg-[#FBCFDE] rounded-full absolute bottom-0"
+              className="w-[230px] min-[380px]:w-[257px] h-[230px] min-[380px]:h-[257px] bg-[#FBCFDE] rounded-full absolute bottom-0"
               aria-hidden="true"
             />
             {/* Avatar Image */}
@@ -40,7 +40,7 @@ export function HeroSection({ language = 'EN_US' }: HeroSectionProps) {
               alt={t.name}
               width={207}
               height={309}
-              className="relative z-10 w-[207px] h-auto object-contain select-none pointer-events-none drop-shadow-sm grayscale"
+              className="relative z-10 w-[185px] min-[380px]:w-[207px] h-auto object-contain select-none pointer-events-none drop-shadow-sm grayscale"
               loading="eager"
               decoding="async"
             />
@@ -48,7 +48,7 @@ export function HeroSection({ language = 'EN_US' }: HeroSectionProps) {
         </div>
 
         {/* DownTexts: Animated Comments + Tagline */}
-        <div className="flex flex-col items-start gap-5 w-full max-w-[320px]">
+        <div className="flex flex-col items-start gap-3 sm:gap-5 w-full max-w-[320px]">
           <TypewriterText key={`mobile-${language}`} phrases={t.typewriterPhrases} />
           <p className="text-[12px] font-light text-[#010101] leading-relaxed">
             {t.tagline}
