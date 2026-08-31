@@ -1,10 +1,12 @@
 import aboutPhoto from '../assets/about-photo-4d4a89.png'
 import arrowDownLeft from '../assets/arrow-down-left.svg'
-import emailIcon from '../assets/email-icon.svg'
-import phoneIcon from '../assets/phone-icon.svg'
-import linkedinIcon from '../assets/linkedin.svg'
-import instagramIcon from '../assets/instagram.svg'
-import githubIcon from '../assets/github.svg'
+import {
+  LinkedInIcon,
+  InstagramIcon,
+  GitHubIcon,
+  EmailIcon,
+  PhoneIcon,
+} from './DynamicIcons'
 import Disponibilidade from './Disponibilidade'
 import { type Language, aboutTranslations } from '../i18n/translations'
 
@@ -42,7 +44,7 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
       {/* Main Info Content: 3-column on desktop / stacked on mobile */}
       <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-10 lg:gap-8 w-full">
         {/* Left Column: Photo with Asymmetric Border matching height of adjacent columns */}
-        <div className="w-[220px] min-[380px]:w-[240px] sm:w-[288px] h-[310px] min-[380px]:h-[340px] sm:h-[447px] lg:h-auto lg:self-stretch bg-[#FBCFDE] rounded-tl-[34px] rounded-tr-[34px] rounded-br-[34px] rounded-bl-0 overflow-hidden shrink-0 shadow-sm flex">
+        <div className="w-[220px] min-[380px]:w-[240px] sm:w-[288px] h-[310px] min-[380px]:h-[340px] sm:h-[447px] lg:h-auto lg:self-stretch bg-[var(--accent-color,#FBCFDE)] rounded-tl-[34px] rounded-tr-[34px] rounded-br-[34px] rounded-bl-0 overflow-hidden shrink-0 shadow-sm flex transition-colors duration-300">
           <img
             src={aboutPhoto}
             alt="Edgar Silva - About photo"
@@ -65,17 +67,17 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
 
           {/* Highlight Badges (MainInfos) */}
           <div className="flex flex-col gap-2.5 w-full">
-            <div className="border-2 border-[#010101] rounded-[15px] px-3.5 py-1.5 text-[13px] sm:text-[14px] font-medium text-[#010101] whitespace-normal sm:whitespace-nowrap transition-colors hover:bg-[#FBCFDE]">
+            <div className="border-2 border-[#010101] rounded-[15px] px-3.5 py-1.5 text-[13px] sm:text-[14px] font-medium text-[#010101] whitespace-normal sm:whitespace-nowrap transition-colors hover:bg-[var(--accent-color,#FBCFDE)]">
               <span className="font-semibold">{t.educationLabel}</span>{' '}
               <span className="ml-1 text-black">{t.educationValue}</span>
             </div>
 
-            <div className="border-2 border-[#010101] rounded-[15px] px-3.5 py-1.5 text-[13px] sm:text-[14px] font-medium text-[#010101] whitespace-normal sm:whitespace-nowrap transition-colors hover:bg-[#FBCFDE]">
+            <div className="border-2 border-[#010101] rounded-[15px] px-3.5 py-1.5 text-[13px] sm:text-[14px] font-medium text-[#010101] whitespace-normal sm:whitespace-nowrap transition-colors hover:bg-[var(--accent-color,#FBCFDE)]">
               <span className="font-semibold">{t.focusLabel}</span>{' '}
               <span className="ml-1 text-black">{t.focusValue}</span>
             </div>
 
-            <div className="border-2 border-[#010101] rounded-[15px] px-3.5 py-1.5 text-[13px] sm:text-[14px] font-medium text-[#010101] whitespace-normal sm:whitespace-nowrap transition-colors hover:bg-[#FBCFDE]">
+            <div className="border-2 border-[#010101] rounded-[15px] px-3.5 py-1.5 text-[13px] sm:text-[14px] font-medium text-[#010101] whitespace-normal sm:whitespace-nowrap transition-colors hover:bg-[var(--accent-color,#FBCFDE)]">
               <span className="font-semibold">{t.stackLabel}</span>{' '}
               <span className="ml-1 text-black">{t.stackValue}</span>
             </div>
@@ -107,8 +109,8 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
                 className="flex items-center gap-2.5 group no-underline text-inherit focus-visible:outline-2 focus-visible:outline-[#010101] rounded-lg w-fit"
                 aria-label="LinkedIn Profile"
               >
-                <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
-                  <img src={linkedinIcon} alt="" className="w-full h-full object-contain" aria-hidden="true" />
+                <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center transition-all duration-200 group-hover:scale-105 text-[var(--accent-color,#FBCFDE)]">
+                  <LinkedInIcon className="w-full h-full object-contain" aria-hidden="true" />
                 </div>
                 <span className="text-[14px] sm:text-[17px] lg:text-[20px] font-medium text-black group-hover:underline transition-all">
                   Linkedin
@@ -123,8 +125,8 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
                 className="flex items-center gap-2.5 group no-underline text-inherit focus-visible:outline-2 focus-visible:outline-[#010101] rounded-lg w-fit"
                 aria-label="Instagram Profile"
               >
-                <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
-                  <img src={instagramIcon} alt="" className="w-full h-full object-contain" aria-hidden="true" />
+                <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center transition-all duration-200 group-hover:scale-105 text-[var(--accent-color,#FBCFDE)]">
+                  <InstagramIcon className="w-full h-full object-contain" aria-hidden="true" />
                 </div>
                 <span className="text-[14px] sm:text-[17px] lg:text-[20px] font-medium text-black group-hover:underline transition-all">
                   Instagram
@@ -139,8 +141,8 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
                 className="flex items-center gap-2.5 group no-underline text-inherit focus-visible:outline-2 focus-visible:outline-[#010101] rounded-lg w-fit"
                 aria-label="GitHub Profile"
               >
-                <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
-                  <img src={githubIcon} alt="" className="w-full h-full object-contain" aria-hidden="true" />
+                <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center transition-all duration-200 group-hover:scale-105 text-[var(--accent-color,#FBCFDE)]">
+                  <GitHubIcon className="w-full h-full object-contain" aria-hidden="true" />
                 </div>
                 <span className="text-[14px] sm:text-[17px] lg:text-[20px] font-medium text-black group-hover:underline transition-all">
                   Github
@@ -157,8 +159,8 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
               className="flex items-center gap-2.5 sm:gap-3 group no-underline text-inherit focus-visible:outline-2 focus-visible:outline-[#010101] rounded-lg p-1 -m-1 w-fit max-w-full"
               aria-label={`Send email to ${t.email}`}
             >
-              <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center">
-                <img src={emailIcon} alt="" className="w-full h-full object-contain" aria-hidden="true" />
+              <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center text-[var(--accent-color,#FBCFDE)]">
+                <EmailIcon className="w-full h-full object-contain" aria-hidden="true" />
               </div>
               <span className="text-[13px] sm:text-[16px] lg:text-[20px] font-medium text-[#010101] break-all group-hover:underline transition-all">
                 {t.email}
@@ -167,8 +169,8 @@ export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
 
             {/* Phone Contact */}
             <div className="flex items-center gap-2.5 sm:gap-3 p-1 -m-1 w-fit max-w-full">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center">
-                <img src={phoneIcon} alt="" className="w-full h-full object-contain" aria-hidden="true" />
+              <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 shrink-0 flex items-center justify-center text-[var(--accent-color,#FBCFDE)]">
+                <PhoneIcon className="w-full h-full object-contain" aria-hidden="true" />
               </div>
               <span className="text-[13px] sm:text-[16px] lg:text-[20px] font-medium text-[#010101]">
                 {t.phone}

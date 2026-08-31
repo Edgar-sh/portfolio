@@ -74,7 +74,7 @@ export function ProjectsSection({ language = 'EN_US' }: ProjectsSectionProps) {
               onClick={() => setActiveFilter(filter.key)}
               className={`px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-[30px] border-2 border-[#010101] text-[13px] sm:text-[16px] font-medium transition-colors duration-200 cursor-pointer select-none ${
                 isActive
-                  ? 'bg-[#FBCFDE] text-black font-semibold hover:bg-[#010101] hover:text-white'
+                  ? 'bg-[var(--accent-color,#FBCFDE)] text-black font-semibold hover:bg-[#010101] hover:text-white'
                   : 'bg-white text-black hover:bg-[#010101] hover:text-white'
               }`}
               aria-pressed={isActive}

@@ -76,7 +76,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 md:px-3.5 md:py-2 rounded-[22px] border-2 border-black bg-white hover:bg-[#FBCFDE] transition-colors text-[12px] md:text-[13px] font-medium text-black no-underline select-none"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 md:px-3.5 md:py-2 rounded-[22px] border-2 border-black bg-white hover:bg-[var(--accent-color,#FBCFDE)] transition-colors text-[12px] md:text-[13px] font-medium text-black no-underline select-none"
                 aria-label={`${project.title} - ${link.label}`}
               >
                 {icon && (

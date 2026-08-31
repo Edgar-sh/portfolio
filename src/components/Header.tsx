@@ -6,7 +6,8 @@ export type { Language }
 
 export interface HeaderProps {
   currentLanguage?: Language
-  onLanguageChange?: (lang: Language) => void
+  onLanguageChange?: (language: Language) => void
+  onLogoClick?: () => void
   onTalkClick?: () => void
   onNavClick?: (section: 'about' | 'technologies' | 'projects') => void
 }
@@ -14,35 +15,29 @@ export interface HeaderProps {
 export function Header({
   currentLanguage = 'EN_US',
   onLanguageChange,
+  onLogoClick,
   onTalkClick,
   onNavClick,
 }: HeaderProps) {
-  const [internalLanguage, setInternalLanguage] = useState<Language>(currentLanguage)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
 
-  const selectedLanguage = currentLanguage !== undefined ? currentLanguage : internalLanguage
-  const t = headerTranslations[selectedLanguage]
+  const t = headerTranslations[currentLanguage]
 
+  // Handle clicking outside of dropdown & mobile menu to close them
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsDropdownOpen(false)
       }
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(event.target as Node)
-      ) {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
         setIsMobileMenuOpen(false)
       }
     }
 
-    function handleKeyDown(event: KeyboardEvent) {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setIsDropdownOpen(false)
         setIsMobileMenuOpen(false)
@@ -58,7 +53,6 @@ export function Header({
   }, [])
 
   const handleLanguageSelect = (lang: Language) => {
-    setInternalLanguage(lang)
     setIsDropdownOpen(false)
     if (onLanguageChange) {
       onLanguageChange(lang)
@@ -66,7 +60,6 @@ export function Header({
   }
 
   const handleTalkClick = (e: React.MouseEvent) => {
-    setIsMobileMenuOpen(false)
     if (onTalkClick) {
       e.preventDefault()
       onTalkClick()
@@ -83,27 +76,29 @@ export function Header({
   return (
     <header className="relative w-full max-w-[1180px] mx-auto p-0 box-border" ref={mobileMenuRef}>
       <div className="flex items-center justify-between w-full">
-        {/* Logo */}
-        <a
-          href="#hero"
-          className="flex items-center gap-2.5 md:gap-5 no-underline text-inherit cursor-pointer select-none"
-          aria-label="Edgar-sh Home"
+        {/* Logo with Color-Cycling Click Interaction */}
+        <button
+          type="button"
+          onClick={onLogoClick}
+          className="flex items-center gap-2.5 md:gap-5 no-underline text-inherit cursor-pointer select-none group border-none bg-transparent p-0 text-left transition-transform duration-200 active:scale-95"
+          aria-label={currentLanguage === 'PT_BR' ? 'Alternar cor de destaque' : 'Cycle accent color'}
+          title={currentLanguage === 'PT_BR' ? 'Clique para mudar a cor de destaque' : 'Click to change accent color'}
         >
           <div
-            className="w-[30px] h-[30px] bg-[#FBCFDE] rounded-tl-[33px] rounded-tr-[33px] rounded-br-[33px] rounded-bl-0 flex items-center justify-center text-white font-semibold text-xl leading-none shrink-0"
+            className="w-[30px] h-[30px] bg-[var(--accent-color,#FBCFDE)] rounded-tl-[33px] rounded-tr-[33px] rounded-br-[33px] rounded-bl-0 flex items-center justify-center text-white font-semibold text-xl leading-none shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-active:scale-95 shadow-xs"
             aria-hidden="true"
           >
             E
           </div>
-          <span className="font-medium text-xl text-[#010101] leading-none">
+          <span className="font-medium text-xl text-[#010101] leading-none group-hover:opacity-80 transition-opacity">
             Edgar-sh
           </span>
-        </a>
+        </button>
 
         {/* Desktop Navigation Links */}
         <Buttons
           className="hidden md:flex"
-          language={selectedLanguage}
+          language={currentLanguage}
           onNavClick={onNavClick}
         />
 
@@ -132,7 +127,7 @@ export function Header({
               aria-haspopup="listbox"
               aria-label="Select language"
             >
-              <span>{selectedLanguage}</span>
+              <span>{currentLanguage}</span>
               <svg
                 className={`w-2.5 h-[5px] inline-block transition-transform duration-200 ${
                   isDropdownOpen ? 'rotate-180' : ''
@@ -153,27 +148,27 @@ export function Header({
               >
                 <button
                   type="button"
-                  className={`px-3 py-1.5 text-xs font-semibold text-left cursor-pointer transition-colors duration-150 border-none focus-visible:outline-none focus-visible:bg-[#FBCFDE] ${
-                    selectedLanguage === 'EN_US'
+                  className={`px-3 py-1.5 text-xs font-semibold text-left cursor-pointer transition-colors duration-150 border-none focus-visible:outline-none focus-visible:bg-[var(--accent-color,#FBCFDE)] ${
+                    currentLanguage === 'EN_US'
                       ? 'bg-[#010101] text-white'
-                      : 'bg-transparent text-black hover:bg-[#FBCFDE]'
+                      : 'bg-transparent text-black hover:bg-[var(--accent-color,#FBCFDE)]'
                   }`}
                   onClick={() => handleLanguageSelect('EN_US')}
                   role="option"
-                  aria-selected={selectedLanguage === 'EN_US'}
+                  aria-selected={currentLanguage === 'EN_US'}
                 >
                   EN_US
                 </button>
                 <button
                   type="button"
-                  className={`px-3 py-1.5 text-xs font-semibold text-left cursor-pointer transition-colors duration-150 border-none focus-visible:outline-none focus-visible:bg-[#FBCFDE] ${
-                    selectedLanguage === 'PT_BR'
+                  className={`px-3 py-1.5 text-xs font-semibold text-left cursor-pointer transition-colors duration-150 border-none focus-visible:outline-none focus-visible:bg-[var(--accent-color,#FBCFDE)] ${
+                    currentLanguage === 'PT_BR'
                       ? 'bg-[#010101] text-white'
-                      : 'bg-transparent text-black hover:bg-[#FBCFDE]'
+                      : 'bg-transparent text-black hover:bg-[var(--accent-color,#FBCFDE)]'
                   }`}
                   onClick={() => handleLanguageSelect('PT_BR')}
                   role="option"
-                  aria-selected={selectedLanguage === 'PT_BR'}
+                  aria-selected={currentLanguage === 'PT_BR'}
                 >
                   PT_BR
                 </button>
@@ -229,21 +224,21 @@ export function Header({
           <nav className="flex flex-col gap-2" aria-label="Mobile Navigation">
             <a
               href="#about"
-              className="text-black text-sm font-medium py-2.5 px-3 rounded-lg no-underline hover:bg-[#FBCFDE] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101]"
+              className="text-black text-sm font-medium py-2.5 px-3 rounded-lg no-underline hover:bg-[var(--accent-color,#FBCFDE)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101]"
               onClick={() => handleMobileNavClick('about')}
             >
               {t.about}
             </a>
             <a
               href="#technologies"
-              className="text-black text-sm font-medium py-2.5 px-3 rounded-lg no-underline hover:bg-[#FBCFDE] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101]"
+              className="text-black text-sm font-medium py-2.5 px-3 rounded-lg no-underline hover:bg-[var(--accent-color,#FBCFDE)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101]"
               onClick={() => handleMobileNavClick('technologies')}
             >
               {t.technologies}
             </a>
             <a
               href="#projects"
-              className="text-black text-sm font-medium py-2.5 px-3 rounded-lg no-underline hover:bg-[#FBCFDE] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101]"
+              className="text-black text-sm font-medium py-2.5 px-3 rounded-lg no-underline hover:bg-[var(--accent-color,#FBCFDE)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101]"
               onClick={() => handleMobileNavClick('projects')}
             >
               {t.projects}
@@ -261,7 +256,7 @@ export function Header({
                 <button
                   type="button"
                   className={`px-3 py-1 text-xs font-semibold rounded-[20px] border border-[#010101] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101] ${
-                    selectedLanguage === 'EN_US'
+                    currentLanguage === 'EN_US'
                       ? 'bg-[#010101] text-white'
                       : 'bg-transparent text-black hover:bg-[#010101] hover:text-white'
                   }`}
@@ -272,7 +267,7 @@ export function Header({
                 <button
                   type="button"
                   className={`px-3 py-1 text-xs font-semibold rounded-[20px] border border-[#010101] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#010101] ${
-                    selectedLanguage === 'PT_BR'
+                    currentLanguage === 'PT_BR'
                       ? 'bg-[#010101] text-white'
                       : 'bg-transparent text-black hover:bg-[#010101] hover:text-white'
                   }`}
