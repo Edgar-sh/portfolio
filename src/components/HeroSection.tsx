@@ -24,14 +24,14 @@ export function HeroSection({ language = 'EN_US' }: HeroSectionProps) {
           {/* Greeting Text: "I'm Edgar Henrique" */}
           <h1 className="text-[22px] min-[380px]:text-[24px] font-medium text-black tracking-normal leading-normal text-center mb-2 select-none">
             {t.mobileGreetingPrefix}
-            <span className="text-[#FBCFDE] font-bold">{t.name}</span>
+            <span className="text-[var(--accent-color,#FBCFDE)] font-bold transition-colors duration-300">{t.name}</span>
           </h1>
 
           {/* Figure: 257px Circle + 207px Avatar */}
           <div className="relative flex items-center justify-center w-[230px] min-[380px]:w-[257px] h-[280px] min-[380px]:h-[309px]">
             {/* Pink Ellipse */}
             <div
-              className="w-[230px] min-[380px]:w-[257px] h-[230px] min-[380px]:h-[257px] bg-[#FBCFDE] rounded-full absolute bottom-0"
+              className="w-[230px] min-[380px]:w-[257px] h-[230px] min-[380px]:h-[257px] bg-[var(--accent-color,#FBCFDE)] rounded-full absolute bottom-0 transition-colors duration-300"
               aria-hidden="true"
             />
             {/* Avatar Image */}
@@ -79,7 +79,7 @@ export function HeroSection({ language = 'EN_US' }: HeroSectionProps) {
 
           {/* DivisorPink */}
           <div
-            className="w-[150px] h-[7px] bg-[#FBCFDE] rounded-full"
+            className="w-[150px] h-[7px] bg-[var(--accent-color,#FBCFDE)] rounded-full transition-colors duration-300"
             role="separator"
             aria-hidden="true"
           />
@@ -89,7 +89,7 @@ export function HeroSection({ language = 'EN_US' }: HeroSectionProps) {
         <div className="relative flex items-center justify-center w-[409px] shrink-0">
           {/* Pink Circle */}
           <div
-            className="w-[410px] h-[410px] bg-[#FBCFDE] rounded-full absolute top-[44px]"
+            className="w-[410px] h-[410px] bg-[var(--accent-color,#FBCFDE)] rounded-full absolute top-[44px] transition-colors duration-300"
             aria-hidden="true"
           />
 

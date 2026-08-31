@@ -1,13 +1,15 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, type ComponentType, type SVGProps } from 'react'
 import { useInView } from 'framer-motion'
-import springIcon from '../assets/tech/spring.svg'
-import javaIcon from '../assets/tech/java.svg'
-import pgsqlIcon from '../assets/tech/pgsql.svg'
-import tailwindIcon from '../assets/tech/tailwind.svg'
-import typescriptIcon from '../assets/tech/typescript.svg'
-import figmaIcon from '../assets/tech/figma.svg'
-import gimpIcon from '../assets/tech/gimp.svg'
-import aftereffectsIcon from '../assets/tech/aftereffects.svg'
+import {
+  SpringIcon,
+  JavaIcon,
+  PgSQLIcon,
+  TailwindIcon,
+  TypeScriptIcon,
+  FigmaIcon,
+  GimpIcon,
+  AfterEffectsIcon,
+} from './DynamicIcons'
 import { type Language, technologiesTranslations } from '../i18n/translations'
 
 export interface TechnologiesSectionProps {
@@ -30,20 +32,18 @@ const proficiencies: ProficiencyItem[] = [
 
 interface TechCard {
   name: string
-  icon: string
-  width?: number
-  height?: number
+  Icon: ComponentType<SVGProps<SVGSVGElement>>
 }
 
 const techCards: TechCard[] = [
-  { name: 'SpringBoot', icon: springIcon },
-  { name: 'Java', icon: javaIcon },
-  { name: 'PgSQL', icon: pgsqlIcon },
-  { name: 'Tailwind', icon: tailwindIcon },
-  { name: 'Typescript', icon: typescriptIcon },
-  { name: 'Figma', icon: figmaIcon },
-  { name: 'GIMP', icon: gimpIcon },
-  { name: 'AfterEffects', icon: aftereffectsIcon },
+  { name: 'SpringBoot', Icon: SpringIcon },
+  { name: 'Java', Icon: JavaIcon },
+  { name: 'PgSQL', Icon: PgSQLIcon },
+  { name: 'Tailwind', Icon: TailwindIcon },
+  { name: 'Typescript', Icon: TypeScriptIcon },
+  { name: 'Figma', Icon: FigmaIcon },
+  { name: 'GIMP', Icon: GimpIcon },
+  { name: 'AfterEffects', Icon: AfterEffectsIcon },
 ]
 
 export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionProps) {
@@ -112,7 +112,7 @@ export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionP
                   {/* Gauge indicator: [■■■■■■■□□□] */}
                   <span className="text-[14px] min-[380px]:text-[16px] sm:text-[19px] lg:text-[20px] font-inter shrink-0 select-none leading-none tracking-[0.5px] whitespace-nowrap">
                     <span className="text-black">[</span>
-                    <span className="text-[#FBCFDE]">{'■'.repeat(currentFilled)}</span>
+                    <span className="text-[var(--accent-color,#FBCFDE)] transition-colors duration-300">{'■'.repeat(currentFilled)}</span>
                     <span className="text-black">{'□'.repeat(empty)}</span>
                     <span className="text-black">]</span>
                   </span>
@@ -142,15 +142,10 @@ export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionP
             {techCards.map((card) => (
               <div
                 key={card.name}
-                className="flex flex-col items-center justify-center px-2.5 py-3 sm:px-4 sm:py-5 rounded-[20px] border-2 border-transparent hover:border-[#010101] hover:bg-[#FBCFDE]/10 transition-all duration-200 group select-none min-h-[88px] sm:min-h-[100px]"
+                className="flex flex-col items-center justify-center px-2.5 py-3 sm:px-4 sm:py-5 rounded-[20px] border-2 border-transparent hover:border-[#010101] hover:bg-[var(--accent-color,#FBCFDE)]/10 transition-all duration-200 group select-none min-h-[88px] sm:min-h-[100px]"
               >
-                <div className="w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
-                  <img
-                    src={card.icon}
-                    alt=""
-                    className="w-full h-full object-contain"
-                    aria-hidden="true"
-                  />
+                <div className="w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center transition-transform duration-200 group-hover:scale-110 text-[var(--accent-color,#FBCFDE)]">
+                  <card.Icon className="w-full h-full object-contain" aria-hidden="true" />
                 </div>
                 <span className="mt-1.5 sm:mt-2 text-[13px] sm:text-[16px] lg:text-[18px] font-medium text-black text-center tracking-tight">
                   {card.name}
