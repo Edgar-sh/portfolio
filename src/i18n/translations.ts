@@ -42,7 +42,7 @@ export interface FooterTranslations {
 
 export interface ProjectTag {
   name: string
-  icon?: 'java' | 'javalin' | 'thymeleaf' | 'javascript' | 'figma' | 'gimp'
+  icon?: 'java' | 'javalin' | 'thymeleaf' | 'javascript' | 'figma' | 'gimp' | 'react' | 'typescript'
 }
 
 export type ProjectCategory = 'all' | 'fullstack' | 'uiux' | 'graphic'
@@ -185,6 +185,30 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
     ],
     projects: [
       {
+        id: 'portfolio',
+        title: 'Portfolio',
+        categories: ['all', 'fullstack', 'uiux'],
+        description:
+          'Personal developer portfolio designed in Figma and built with React 19, TypeScript, and Tailwind CSS. Implemented with Figma MCP for pixel-perfect design-to-code workflow, native bilingual i18n support, and smooth interactive animations.',
+        image: 'portfolio',
+        tags: [
+          { name: 'React', icon: 'react' },
+          { name: 'TypeScript', icon: 'typescript' },
+        ],
+        links: [
+          {
+            type: 'github',
+            label: 'Github',
+            url: 'https://github.com/Edgar-sh/portfolio',
+          },
+          {
+            type: 'website',
+            label: 'Website',
+            url: 'https://edgardev.codes',
+          },
+        ],
+      },
+      {
         id: 'stackberry',
         title: 'StackBerry',
         categories: ['all', 'fullstack'],
@@ -285,6 +309,30 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
       { key: 'graphic', label: 'Design Gráfico' },
     ],
     projects: [
+      {
+        id: 'portfolio',
+        title: 'Portfólio',
+        categories: ['all', 'fullstack', 'uiux'],
+        description:
+          'Portfólio pessoal de desenvolvedor projetado no Figma e construído com React 19, TypeScript e Tailwind CSS. Implementado com o MCP do Figma para um fluxo design-to-code com fidelidade pixel-perfect, suporte nativo bilíngue a i18n e animações interativas suaves.',
+        image: 'portfolio',
+        tags: [
+          { name: 'React', icon: 'react' },
+          { name: 'TypeScript', icon: 'typescript' },
+        ],
+        links: [
+          {
+            type: 'github',
+            label: 'Github',
+            url: 'https://github.com/Edgar-sh/portfolio',
+          },
+          {
+            type: 'website',
+            label: 'Website',
+            url: 'https://edgardev.codes',
+          },
+        ],
+      },
       {
         id: 'stackberry',
         title: 'StackBerry',
