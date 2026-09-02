@@ -189,11 +189,12 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
         title: 'Portfolio',
         categories: ['all', 'fullstack', 'uiux'],
         description:
-          'Personal developer portfolio designed in Figma and built with React 19, TypeScript, and Tailwind CSS. Implemented with Figma MCP for pixel-perfect design-to-code workflow, native bilingual i18n support, and smooth interactive animations.',
+          'Personal portfolio built with React and TypeScript, using Figma MCP for pixel-perfect design-to-code fidelity and bilingual support.',
         image: 'portfolio',
         tags: [
           { name: 'React', icon: 'react' },
           { name: 'TypeScript', icon: 'typescript' },
+          { name: 'Figma', icon: 'figma' },
         ],
         links: [
           {
@@ -314,11 +315,12 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
         title: 'Portfólio',
         categories: ['all', 'fullstack', 'uiux'],
         description:
-          'Portfólio pessoal de desenvolvedor projetado no Figma e construído com React 19, TypeScript e Tailwind CSS. Implementado com o MCP do Figma para um fluxo design-to-code com fidelidade pixel-perfect, suporte nativo bilíngue a i18n e animações interativas suaves.',
+          'Portfólio pessoal desenvolvido com React e TypeScript, utilizando o MCP do Figma para fidelidade pixel-perfect e suporte bilíngue.',
         image: 'portfolio',
         tags: [
           { name: 'React', icon: 'react' },
           { name: 'TypeScript', icon: 'typescript' },
+          { name: 'Figma', icon: 'figma' },
         ],
         links: [
           {
