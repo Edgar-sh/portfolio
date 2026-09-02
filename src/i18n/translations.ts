@@ -187,7 +187,7 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
       {
         id: 'portfolio',
         title: 'Portfolio',
-        categories: ['all', 'fullstack', 'uiux'],
+        categories: ['all', 'uiux'],
         description:
           'Personal portfolio built with React and TypeScript, using Figma MCP for pixel-perfect design-to-code fidelity and bilingual support.',
         image: 'portfolio',
@@ -313,7 +313,7 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
       {
         id: 'portfolio',
         title: 'Portfólio',
-        categories: ['all', 'fullstack', 'uiux'],
+        categories: ['all', 'uiux'],
         description:
           'Portfólio pessoal desenvolvido com React e TypeScript, utilizando o MCP do Figma para fidelidade pixel-perfect e suporte bilíngue.',
         image: 'portfolio',
