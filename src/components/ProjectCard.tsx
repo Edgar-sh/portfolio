@@ -3,6 +3,7 @@ import minhasComprasImg from '../assets/projects/minhas-compras-76c2c0.png'
 import brioCafeteriaImg from '../assets/projects/brio-cafeteria.png'
 import camisaSiImg from '../assets/projects/camisa-si.png'
 import smartProtectorLauncherImg from '../assets/projects/smart-protector-launcher.png'
+import portfolioImg from '../assets/projects/portfolio.png'
 import githubIcon from '../assets/projects/github.svg'
 import globeIcon from '../assets/projects/globe.svg'
 import playstoreIcon from '../assets/projects/playstore.svg'
@@ -16,6 +17,7 @@ const imageMap: Record<string, string> = {
   'brio-cafeteria': brioCafeteriaImg,
   'camisa-si': camisaSiImg,
   'smart-protector-launcher': smartProtectorLauncherImg,
+  portfolio: portfolioImg,
 }
 
 const linkIconMap: Record<string, string> = {

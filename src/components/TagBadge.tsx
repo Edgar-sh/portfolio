@@ -4,6 +4,8 @@ import thymeleafIcon from '../assets/tags/tag-thymeleaf.svg'
 import javascriptIcon from '../assets/tags/tag-javascript.svg'
 import figmaIcon from '../assets/tags/tag-figma.svg'
 import gimpIcon from '../assets/tags/tag-gimp.svg'
+import reactIcon from '../assets/tags/tag-react.svg'
+import typescriptIcon from '../assets/tags/tag-typescript.svg'
 import { type ProjectTag } from '../i18n/translations'
 
 const iconMap: Record<string, string> = {
@@ -13,6 +15,8 @@ const iconMap: Record<string, string> = {
   javascript: javascriptIcon,
   figma: figmaIcon,
   gimp: gimpIcon,
+  react: reactIcon,
+  typescript: typescriptIcon,
 }
 
 export function TagBadge({ name, icon }: ProjectTag) {

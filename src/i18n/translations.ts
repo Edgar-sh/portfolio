@@ -42,7 +42,7 @@ export interface FooterTranslations {
 
 export interface ProjectTag {
   name: string
-  icon?: 'java' | 'javalin' | 'thymeleaf' | 'javascript' | 'figma' | 'gimp'
+  icon?: 'java' | 'javalin' | 'thymeleaf' | 'javascript' | 'figma' | 'gimp' | 'react' | 'typescript'
 }
 
 export type ProjectCategory = 'all' | 'fullstack' | 'uiux' | 'graphic'
@@ -185,6 +185,31 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
     ],
     projects: [
       {
+        id: 'portfolio',
+        title: 'Portfolio',
+        categories: ['all', 'uiux'],
+        description:
+          'Personal portfolio built with React and TypeScript, using Figma MCP for pixel-perfect design-to-code fidelity and bilingual support.',
+        image: 'portfolio',
+        tags: [
+          { name: 'React', icon: 'react' },
+          { name: 'TypeScript', icon: 'typescript' },
+          { name: 'Figma', icon: 'figma' },
+        ],
+        links: [
+          {
+            type: 'github',
+            label: 'Github',
+            url: 'https://github.com/Edgar-sh/portfolio',
+          },
+          {
+            type: 'website',
+            label: 'Website',
+            url: 'https://edgardev.codes',
+          },
+        ],
+      },
+      {
         id: 'stackberry',
         title: 'StackBerry',
         categories: ['all', 'fullstack'],
@@ -285,6 +310,31 @@ export const projectsTranslations: Record<Language, ProjectsTranslations> = {
       { key: 'graphic', label: 'Design Gráfico' },
     ],
     projects: [
+      {
+        id: 'portfolio',
+        title: 'Portfólio',
+        categories: ['all', 'uiux'],
+        description:
+          'Portfólio pessoal desenvolvido com React e TypeScript, utilizando o MCP do Figma para fidelidade pixel-perfect e suporte bilíngue.',
+        image: 'portfolio',
+        tags: [
+          { name: 'React', icon: 'react' },
+          { name: 'TypeScript', icon: 'typescript' },
+          { name: 'Figma', icon: 'figma' },
+        ],
+        links: [
+          {
+            type: 'github',
+            label: 'Github',
+            url: 'https://github.com/Edgar-sh/portfolio',
+          },
+          {
+            type: 'website',
+            label: 'Website',
+            url: 'https://edgardev.codes',
+          },
+        ],
+      },
       {
         id: 'stackberry',
         title: 'StackBerry',
