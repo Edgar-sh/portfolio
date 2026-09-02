@@ -1,5 +1,7 @@
 # Edgar Henrique | Portfolio
 
+![Portfolio Preview](.github/assets/preview.webp)
+
 Personal portfolio designed to showcase my work in software development, UI/UX design, and end-to-end digital solutions.
 
 Live: https://edgardev.codes
