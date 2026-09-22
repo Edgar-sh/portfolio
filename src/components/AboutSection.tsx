@@ -14,7 +14,7 @@ export interface AboutSectionProps {
   language?: Language
 }
 
-export function AboutSection({ language = 'EN_US' }: AboutSectionProps) {
+export function AboutSection({ language = 'PT_BR' }: AboutSectionProps) {
   const t = aboutTranslations[language]
 
   return (

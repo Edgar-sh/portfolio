@@ -8,7 +8,7 @@ export interface ButtonsProps {
 
 export default function Buttons({
   className = '',
-  language = 'EN_US',
+  language = 'PT_BR',
   onNavClick,
 }: ButtonsProps) {
   const t = headerTranslations[language]

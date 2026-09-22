@@ -46,7 +46,7 @@ const techCards: TechCard[] = [
   { name: 'AfterEffects', Icon: AfterEffectsIcon },
 ]
 
-export function TechnologiesSection({ language = 'EN_US' }: TechnologiesSectionProps) {
+export function TechnologiesSection({ language = 'PT_BR' }: TechnologiesSectionProps) {
   const t = technologiesTranslations[language]
   const sectionRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 })

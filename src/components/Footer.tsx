@@ -4,7 +4,7 @@ export interface FooterProps {
   language?: Language
 }
 
-export function Footer({ language = 'EN_US' }: FooterProps) {
+export function Footer({ language = 'PT_BR' }: FooterProps) {
   const t = footerTranslations[language]
 
   return (

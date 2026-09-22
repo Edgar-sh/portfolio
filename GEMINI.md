@@ -34,7 +34,7 @@ Este documento define as regras de negócio, convenções técnicas, tokens visu
 
 - **Regra Obrigatória de Conteúdo (Bilinguismo)**:
   - **Todo e qualquer texto adicionado na interface deve obrigatoriamente possuir sua versão completa tanto em Inglês (`EN_US`) quanto em Português (`PT_BR`) durante a implementação**.
-  - O idioma padrão inicial exibido na interface é **Inglês (`EN_US`)**.
+  - O idioma padrão inicial exibido na interface é **Português (`PT_BR`)**.
 - **Idiomas Suportados**: `EN_US` e `PT_BR`.
 - **Mensagens Técnicas & Commits**:
   - Commits, logs e nomes de código devem seguir o padrão Conventional Commits em inglês.

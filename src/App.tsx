@@ -9,7 +9,7 @@ import { Footer } from './components/Footer'
 const ACCENT_COLORS = ['#FBCFDE', '#b1ecf6', '#fddb77'] as const
 
 export default function App() {
-  const [language, setLanguage] = useState<Language>('EN_US')
+  const [language, setLanguage] = useState<Language>('PT_BR')
   const [accentColorIndex, setAccentColorIndex] = useState(0)
   const currentAccentColor = ACCENT_COLORS[accentColorIndex]
 
