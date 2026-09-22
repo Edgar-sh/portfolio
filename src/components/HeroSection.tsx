@@ -6,7 +6,7 @@ export interface HeroSectionProps {
   language?: Language
 }
 
-export function HeroSection({ language = 'EN_US' }: HeroSectionProps) {
+export function HeroSection({ language = 'PT_BR' }: HeroSectionProps) {
   const t = heroTranslations[language]
 
   return (

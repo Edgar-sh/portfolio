@@ -13,7 +13,7 @@ export interface HeaderProps {
 }
 
 export function Header({
-  currentLanguage = 'EN_US',
+  currentLanguage = 'PT_BR',
   onLanguageChange,
   onLogoClick,
   onTalkClick,

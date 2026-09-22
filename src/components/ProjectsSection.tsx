@@ -12,7 +12,7 @@ export interface ProjectsSectionProps {
   language?: Language
 }
 
-export function ProjectsSection({ language = 'EN_US' }: ProjectsSectionProps) {
+export function ProjectsSection({ language = 'PT_BR' }: ProjectsSectionProps) {
   const t = projectsTranslations[language]
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>('all')
   const carouselRef = useRef<HTMLDivElement>(null)
